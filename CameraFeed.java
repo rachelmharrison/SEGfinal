@@ -6,6 +6,7 @@ public class CameraFeed
 	//constructor needs to take only the location
 	public CameraFeed(String location){
 		location=location;
+		eventTriggered=false;
 	}
 	
 	public String getLocation(){
