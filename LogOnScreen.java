@@ -57,5 +57,7 @@ public class LogOnScreen extends JPanel
 		gbc.gridx=10;
 		gbc.gridy=30;
 		this.add(accountButton, gbc);
+
+		this.setBackground(Color.WHITE);
 	}
 }

@@ -89,17 +89,13 @@ public class View implements ActionListener
 	{
 		if(e.getSource().equals(logOutButton))
 		{
-			frame.remove(top);
-			frame.remove(bottom);
-			frame.remove(main);
+
 			while(prevScreens.isEmpty()!=true)
 			{
 				prevScreens.pop();
 			}
-			main=new LogOnScreen(this);
-			frame.add(main, BorderLayout.CENTER);
-			currentPanel=main;
-			frame.revalidate();
+			changeScreen(new LogOnScreen(this), false);
+			
 			if(tracing)System.out.println("Success logOutButton");
 		}
 
@@ -107,7 +103,8 @@ public class View implements ActionListener
 		{
 			try
 			{
-				main=(JPanel)prevScreens.pop();
+				changeScreen((JPanel)prevScreens.pop(), true);
+
 			}
 			catch(EmptyStackException ex)
 			{
@@ -126,16 +123,56 @@ public class View implements ActionListener
 			if(e.getSource().equals(c.accountButton))
 			{
 				prevScreens.push(currentPanel);
-				frame.remove(main);
-				//borderLayoutPanel.repaint();
-				main=new CreateAccountScreen(this);
-				frame.add(main, BorderLayout.CENTER);
-				currentPanel=main;
-				frame.add(top, BorderLayout.NORTH);
-				frame.add(bottom, BorderLayout.SOUTH);
-				frame.validate();
+				changeScreen(new CreateAccountScreen(this), true);
+	
 				if(tracing)System.out.println("Create Account Screen would appear");
 			}
 		}
+
+		if(currentPanel.getClass().getName().equals("CreateAccountScreen"))
+		{
+			CreateAccountScreen c=(CreateAccountScreen)currentPanel;
+			if(e.getSource().equals(c.confirmButton))
+			{
+				prevScreens.push(currentPanel);
+
+				String username=c.usernameField.getText();
+				String password1=c.passwordField1.getText();
+				String password2=c.passwordField2.getText();
+				String name=c.nameField.getText();
+				String role=(String)c.roleBox.getSelectedItem();
+				String dob=c.dobField.getText();
+				char gender=((String)c.genderBox.getSelectedItem()).charAt(0);
+
+				boolean valid=true;
+
+				//test for username in system
+			//	if(system.checkForUsername())
+
+				changeScreen(new CreateAccountScreen(this), true);
+	
+				if(tracing)System.out.println("Create Account Screen would appear");
+			}
+		}
+
+	}
+
+	public void changeScreen(JPanel panel, boolean border)
+	{
+		frame.remove(currentPanel);
+		frame.remove(top);
+		frame.remove(bottom);
+		frame.add(panel, BorderLayout.CENTER);
+
+		if(border)
+		{
+			frame.add(top, BorderLayout.NORTH);
+			frame.add(bottom, BorderLayout.SOUTH);
+		}
+
+		frame.repaint();
+		frame.revalidate();
+
+		currentPanel=panel;
 	}
 }

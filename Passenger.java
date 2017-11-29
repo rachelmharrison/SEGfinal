@@ -37,7 +37,7 @@ public class Passenger
 
 	public boolean checkIn(Flight f)
 	{
-		int 1=0;
+		int i=0;
 		while(bookings[i]!=null)
 		{
 			if(bookings[i].getFlight().equals(f))
@@ -76,7 +76,7 @@ public class Passenger
 		}
 		
 		luggage[i]=l;
-		currentFlight.addLuggage(l)
+		currentFlight.addLuggage(l);
 	}
 
 	//implement getters

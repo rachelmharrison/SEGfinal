@@ -4,7 +4,7 @@ public class Admin
 	String name;
 
 
-	Passenger(String name)
+	Admin(String name)
 	{
 		this.name=name;
 	}
