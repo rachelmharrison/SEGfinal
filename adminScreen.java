@@ -2,62 +2,18 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class adminScreen
+public class adminScreen extends JPanel
 {
-	public static void main(String[] args)
-	{
-		new adminScreen();
-	}
+
 
 	adminScreen()
 	{
-		JFrame frame=new JFrame("Airport Manager");
-		JPanel top=new JPanel();
-		JPanel main=new JPanel();
-		JPanel bottom=new JPanel();
-		JPanel borderLayoutPanel=new JPanel();
-
-		GridBagConstraints gbc=new GridBagConstraints();
-		JLabel employeeLabel=new JLabel("Welcome: (name of logged in manager)");
-		JButton logOutButton=new JButton("Log Out");
-		JButton backButton=new JButton("Back");
-		JButton helpButton=new JButton("Help");
-
-		employeeLabel.setFont(new Font("Arial", Font.PLAIN, 20));
-		employeeLabel.setForeground(Color.GRAY);
-
-		logOutButton.setFont(new Font("Arial", Font.PLAIN, 20));
-		logOutButton.setBackground(Color.WHITE);
-		logOutButton.setForeground(Color.GRAY);
-		logOutButton.setBorderPainted(false);
-
-		backButton.setFont(new Font("Arial", Font.PLAIN, 20));
-		backButton.setBackground(Color.WHITE);
-		backButton.setForeground(Color.GRAY);
-		backButton.setBorderPainted(false);
-
-		helpButton.setFont(new Font("Arial", Font.PLAIN, 20));
-		helpButton.setBackground(Color.WHITE);
-		helpButton.setForeground(Color.GRAY);
-		helpButton.setBorderPainted(false);
-
-		top.setBackground(Color.WHITE);
-		top.setLayout(new BorderLayout());
-		top.add(employeeLabel, BorderLayout.WEST);
-		top.add(logOutButton, BorderLayout.	EAST);
-
-		bottom.setBackground(Color.WHITE);
-		bottom.setLayout(new BorderLayout());
-		bottom.add(backButton, BorderLayout.WEST);
-		bottom.add(helpButton, BorderLayout.	EAST);
-
-		//start of different code
 		
 		JPanel leftPanel=new JPanel();
 		JPanel rightPanel=new JPanel();
 		JPanel centerPanel=new JPanel();
 
-		main.setLayout(new BorderLayout());
+		this.setLayout(new BorderLayout());
 
 		JButton viewPassengers=new JButton("Passengers");
 		JButton viewLuggage=new JButton("Luggage");
@@ -81,41 +37,49 @@ public class adminScreen
 		viewDeliveries.setBackground(Color.WHITE);
 		viewDeliveries.setBorderPainted(false);
 		viewDeliveries.setHorizontalAlignment(SwingConstants.LEFT);
+		viewDeliveries.addActionListener(this);
 
 		viewLineTimes.setFont(new Font("Arial", Font.PLAIN, 20));
 		viewLineTimes.setBackground(Color.WHITE);
 		viewLineTimes.setBorderPainted(false);
 		viewLineTimes.setHorizontalAlignment(SwingConstants.LEFT);
+		viewLineTimes.addActionListener(this);
 
 		viewGuards.setFont(new Font("Arial", Font.PLAIN, 20));
 		viewGuards.setBackground(Color.WHITE);
 		viewGuards.setBorderPainted(false);
 		viewGuards.setHorizontalAlignment(SwingConstants.LEFT);
+		viewGuards..addActionListener(this);
 
 		viewServices.setFont(new Font("Arial", Font.PLAIN, 20));
 		viewServices.setBackground(Color.WHITE);
 		viewServices.setBorderPainted(false);
 		viewServices.setHorizontalAlignment(SwingConstants.LEFT);
+		viewServices.addActionListener(this);
 
 		viewFeeds.setFont(new Font("Arial", Font.PLAIN, 20));
 		viewFeeds.setBackground(Color.WHITE);
 		viewFeeds.setBorderPainted(false);
 		viewFeeds.setHorizontalAlignment(SwingConstants.LEFT);
+		viewFeeds.addActionListener(this);
 
 		viewFlights.setFont(new Font("Arial", Font.PLAIN, 20));
 		viewFlights.setBackground(Color.WHITE);
 		viewFlights.setBorderPainted(false);
 		viewFlights.setHorizontalAlignment(SwingConstants.LEFT);
+		viewFlights.addActionListener(this);
 
 		viewEventLogs.setFont(new Font("Arial", Font.PLAIN, 20));
 		viewEventLogs.setBackground(Color.WHITE);
 		viewEventLogs.setBorderPainted(false);
 		viewEventLogs.setHorizontalAlignment(SwingConstants.LEFT);
+		viewEventLogs.addActionListener(this);
 
 		viewPersonnel.setFont(new Font("Arial", Font.PLAIN, 20));
 		viewPersonnel.setBackground(Color.WHITE);
 		viewPersonnel.setBorderPainted(false);
 		viewPersonnel.setHorizontalAlignment(SwingConstants.LEFT);
+		viewPersonnel              //HERE
 
 		viewLuggage.setFont(new Font("Arial", Font.PLAIN, 20));
 		viewLuggage.setBackground(Color.WHITE);
@@ -181,22 +145,9 @@ public class adminScreen
 		rightPanel.add(logDelivery);
 		rightPanel.add(logEvent);
 
-		main.add(leftPanel, BorderLayout.WEST);
-		main.add(rightPanel, BorderLayout.EAST);
+		this.add(leftPanel, BorderLayout.WEST);
+		this.add(rightPanel, BorderLayout.EAST);
 
-
-		//end of different code
-
-		borderLayoutPanel.setLayout(new BorderLayout());
-		borderLayoutPanel.add(top, BorderLayout.NORTH);
-		borderLayoutPanel.add(main, BorderLayout.CENTER);
-		borderLayoutPanel.add(bottom, BorderLayout.SOUTH);
-		borderLayoutPanel.setBackground(Color.WHITE);
-		main.setBackground(Color.WHITE);
-
-		frame.setContentPane(borderLayoutPanel);
-		frame.setVisible(true);
-		frame.setSize(1000,1000);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	
 	}
 }
