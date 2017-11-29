@@ -43,7 +43,15 @@ public class UserAccount
 	public String getEmail(){
 		return email;
 	}
-
+	public void setUserName(String name){
+		userName=name;
+	}
+	public void setPassword(String pass){
+		password=pass;
+	}
+	public void setEmail(String email){
+		email=email;
+	}
 
 
 }
