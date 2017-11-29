@@ -21,9 +21,16 @@ public class View implements ActionListener
 	{
 		this.system=system;
 
+		setUpScreen();
+
+
+	}
+
+	private void setUpScreen()
+	{
 		frame=new JFrame("Airport Manager");
 		top=new JPanel();
-		main=new LogOnScreen();
+		main=new LogOnScreen(this);
 		bottom=new JPanel();
 		borderLayoutPanel=new JPanel();
 
@@ -65,9 +72,9 @@ public class View implements ActionListener
 		bottom.add(helpButton, BorderLayout.	EAST);
 
 		borderLayoutPanel.setLayout(new BorderLayout());
-		borderLayoutPanel.add(top, BorderLayout.NORTH);
+	//	borderLayoutPanel.add(top, BorderLayout.NORTH);
 		borderLayoutPanel.add(main, BorderLayout.CENTER);
-		borderLayoutPanel.add(bottom, BorderLayout.SOUTH);
+	//	borderLayoutPanel.add(bottom, BorderLayout.SOUTH);
 		borderLayoutPanel.setBackground(Color.WHITE);
 		main.setBackground(Color.WHITE);
 
@@ -77,15 +84,13 @@ public class View implements ActionListener
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		currentPanel=main;
-
-
 	}
 
 	public void actionPerformed(ActionEvent e)
 	{
 		if(e.getSource().equals(logOutButton))
 		{
-			main=new LogOnScreen();
+			main=new LogOnScreen(this);
 			borderLayoutPanel.remove(top);
 			borderLayoutPanel.remove(bottom);
 			if(tracing)System.out.println("Success logOutButton");
@@ -106,6 +111,14 @@ public class View implements ActionListener
 		if(e.getSource().equals(helpButton))
 		{
 			JOptionPane.showMessageDialog(null, "This Function has not been implemented", "Error", JOptionPane.ERROR_MESSAGE);
+		}
+
+		if(currentPanel.getClass().getName().equals("LogOnScreen")&&e.getSource().equals(currentPanel.accountButton))
+		{
+			//system.createAccount(currentPanel.usernameField.getText(), currentPanel.passwordField.getText());
+			prevScreens.push(currentPanel);
+			main=new CreateAccountScreen(this);
+			currentPanel=main;
 		}
 	}
 }
