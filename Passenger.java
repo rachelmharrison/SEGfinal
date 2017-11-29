@@ -10,12 +10,13 @@ public class Passenger
 	Flight currentFlight;
 	String name;
 	char gender;
+	String dob;
 
-
-	Passenger(String name, char gender)
+	Passenger(String name, char gender, String dob)
 	{
 		this.name=name;
 		this.gender=gender;
+		this.dob=dob;
 		destination="";
 		location="not at airport";
 		timeIn="-1";

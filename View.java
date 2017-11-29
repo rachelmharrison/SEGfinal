@@ -113,12 +113,16 @@ public class View implements ActionListener
 			JOptionPane.showMessageDialog(null, "This Function has not been implemented", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 
-		if(currentPanel.getClass().getName().equals("LogOnScreen")&&e.getSource().equals(currentPanel.accountButton))
+		if(currentPanel.getClass().getName().equals("LogOnScreen"))
 		{
-			//system.createAccount(currentPanel.usernameField.getText(), currentPanel.passwordField.getText());
-			prevScreens.push(currentPanel);
-			main=new CreateAccountScreen(this);
-			currentPanel=main;
+			LogOnScreen c=(LogOnScreen)currentPanel;
+			if(e.getSource().equals(c.accountButton))
+			{
+				prevScreens.push(currentPanel);
+				main=new CreateAccountScreen(this);
+				currentPanel=main;
+				if(tracing)System.out.println("Create Account Screen would appear");
+			}
 		}
 	}
 }
