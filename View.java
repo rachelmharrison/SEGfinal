@@ -32,7 +32,7 @@ public class View implements ActionListener
 		top=new JPanel();
 		main=new LogOnScreen(this);
 		bottom=new JPanel();
-		borderLayoutPanel=new JPanel();
+		//borderLayoutPanel=new JPanel();
 
 		JLabel employeeLabel=new JLabel("Welcome: (name of logged in user)");
 		logOutButton=new JButton("Log Out");
@@ -71,14 +71,13 @@ public class View implements ActionListener
 		bottom.add(backButton, BorderLayout.WEST);
 		bottom.add(helpButton, BorderLayout.	EAST);
 
-		borderLayoutPanel.setLayout(new BorderLayout());
+		frame.setLayout(new BorderLayout());
 	//	borderLayoutPanel.add(top, BorderLayout.NORTH);
-		borderLayoutPanel.add(main, BorderLayout.CENTER);
+		frame.add(main, BorderLayout.CENTER);
 	//	borderLayoutPanel.add(bottom, BorderLayout.SOUTH);
-		borderLayoutPanel.setBackground(Color.WHITE);
+		frame.setBackground(Color.WHITE);
 		main.setBackground(Color.WHITE);
 
-		frame.setContentPane(borderLayoutPanel);
 		frame.setVisible(true);
 		frame.setSize(1000,1000);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -90,9 +89,17 @@ public class View implements ActionListener
 	{
 		if(e.getSource().equals(logOutButton))
 		{
+			frame.remove(top);
+			frame.remove(bottom);
+			frame.remove(main);
+			while(prevScreens.isEmpty()!=true)
+			{
+				prevScreens.pop();
+			}
 			main=new LogOnScreen(this);
-			borderLayoutPanel.remove(top);
-			borderLayoutPanel.remove(bottom);
+			frame.add(main, BorderLayout.CENTER);
+			currentPanel=main;
+			frame.revalidate();
 			if(tracing)System.out.println("Success logOutButton");
 		}
 
@@ -119,8 +126,14 @@ public class View implements ActionListener
 			if(e.getSource().equals(c.accountButton))
 			{
 				prevScreens.push(currentPanel);
+				frame.remove(main);
+				//borderLayoutPanel.repaint();
 				main=new CreateAccountScreen(this);
+				frame.add(main, BorderLayout.CENTER);
 				currentPanel=main;
+				frame.add(top, BorderLayout.NORTH);
+				frame.add(bottom, BorderLayout.SOUTH);
+				frame.validate();
 				if(tracing)System.out.println("Create Account Screen would appear");
 			}
 		}
