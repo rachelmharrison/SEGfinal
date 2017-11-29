@@ -1,24 +1,36 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class View
+public class View implements ActionListener
 {
 	MainClass system;
+	NodeStack prevScreens=new NodeStack(); //sets up back feature
+	JPanel currentPanel;
+	JButton helpButton;
+	JButton logOutButton;
+	JButton backButton;
+	JPanel top;
+	JPanel main;
+	JPanel bottom;
+	JFrame frame;
+	JPanel borderLayoutPanel;
+	boolean tracing=true;
 
 	View(MainClass system)
 	{
 		this.system=system;
 
-		JFrame frame=new JFrame("Airport Manager");
-		JPanel top=new JPanel();
-		JPanel main=new adminScreen();
-		JPanel bottom=new JPanel();
-		JPanel borderLayoutPanel=new JPanel();
+		frame=new JFrame("Airport Manager");
+		top=new JPanel();
+		main=new LogOnScreen();
+		bottom=new JPanel();
+		borderLayoutPanel=new JPanel();
 
-		JLabel employeeLabel=new JLabel("Welcome: (name of logged in manager)");
-		JButton logOutButton=new JButton("Log Out");
-		JButton backButton=new JButton("Back");
-		JButton helpButton=new JButton("Help");
+		JLabel employeeLabel=new JLabel("Welcome: (name of logged in user)");
+		logOutButton=new JButton("Log Out");
+		backButton=new JButton("Back");
+		helpButton=new JButton("Help");
 
 		employeeLabel.setFont(new Font("Arial", Font.PLAIN, 20));
 		employeeLabel.setForeground(Color.GRAY);
@@ -37,6 +49,10 @@ public class View
 		helpButton.setBackground(Color.WHITE);
 		helpButton.setForeground(Color.GRAY);
 		helpButton.setBorderPainted(false);
+
+		logOutButton.addActionListener(this);
+		backButton.addActionListener(this);
+		helpButton.addActionListener(this);
 
 		top.setBackground(Color.WHITE);
 		top.setLayout(new BorderLayout());
@@ -59,5 +75,37 @@ public class View
 		frame.setVisible(true);
 		frame.setSize(1000,1000);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		currentPanel=main;
+
+
+	}
+
+	public void actionPerformed(ActionEvent e)
+	{
+		if(e.getSource().equals(logOutButton))
+		{
+			main=new LogOnScreen();
+			borderLayoutPanel.remove(top);
+			borderLayoutPanel.remove(bottom);
+			if(tracing)System.out.println("Success logOutButton");
+		}
+
+		if(e.getSource().equals(backButton))
+		{
+			try
+			{
+				main=(JPanel)prevScreens.pop();
+			}
+			catch(EmptyStackException ex)
+			{
+
+			}
+		}
+
+		if(e.getSource().equals(helpButton))
+		{
+			JOptionPane.showMessageDialog(null, "This Function has not been implemented", "Error", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 }
