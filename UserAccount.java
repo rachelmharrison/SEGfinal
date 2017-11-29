@@ -33,6 +33,16 @@ public class UserAccount
 		this.email=email;
 		system.addAdmin(adminRole);
 	}
+	
+	public String getUserName(){
+		return userName;
+	}
+	public String getPassword(){
+		return password;
+	}
+	public String getEmail(){
+		return email;
+	}
 
 
 
