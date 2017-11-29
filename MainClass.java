@@ -1,4 +1,4 @@
-public class MainClass
+public class MainClass //don't touch this one
 {
 	public static void main(String args[])
 	{
