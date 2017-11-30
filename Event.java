@@ -21,7 +21,7 @@ public class Event
 	}
 	
 	public void addGuard(Personnel g){
-		if (gCounter!=100){
+		if (gCounter!=25){
 			Personnel[gCounter]=g;
 			gCounter++;
 		}
