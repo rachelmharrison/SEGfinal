@@ -20,11 +20,52 @@ public class Event
 	}
 	
 	public void addGuard(Personnel g){
-		
+		String[]gr=guardsPresent;
+		boolean flag=true;
+		int counter=0;
+		while(flag){
+			if(gr[counter]==null){
+				gr[counter]=g;
+				flag=false;
+			}else{	
+			counter++;
+				if (counter==25){
+					break;
+				}
+			}
+		}
+		guardsPresent=gr;
 	}
 	public void setDate(String d){
 		date=d;
 	}
+	public String getDate(){
+		return date;
+	}
 	
+	public void setTime(String d){
+		time=d;
+	}
+	public String getTime(){
+		return time;
+	}
+	
+	public void setCategory(String d){
+		category=d;
+	}
+	public String getCategory(){
+		return category;
+	}
+	
+	public void setLocation(String d){
+		location=d;
+	}
+	public String getLocation(){
+		return location;
+	}
+	
+	public Personnel[] getGuards(){
+		return guardsPresent;
+	}
 	
 }
