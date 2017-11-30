@@ -128,9 +128,9 @@ public class View implements ActionListener
 				if(tracing)System.out.println("Create Account Screen would appear");
 			}
 
-			if(e.getSource().equals(c.logOnButton))
+			if(e.getSource().equals(c.logInButton))
 			{
-				boolean valid=system.validateUser(c.usernameField.getText(), c.passwordField.getPassword());
+				boolean valid=system.validateUser(c.usernameField.getText(), c.passwordField.getPassword().toString());
 				if(valid==false)
 					JOptionPane.showMessageDialog(null, "There is an error in the username or password.", "Error", JOptionPane.ERROR_MESSAGE);
 				if(valid)
@@ -148,6 +148,9 @@ public class View implements ActionListener
 					{
 						changeScreen(new adminScreen(this), true);
 					}
+
+					//following code is temp until above is implemented
+					changeScreen(new adminScreen(this), true);
 				}
 			
 			}

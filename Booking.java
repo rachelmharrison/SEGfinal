@@ -13,7 +13,7 @@ public class Booking
 	{
 		//implement, seat should be -1 if still unassigned, assign luggage variables based on class
 		flight=f;
-		seat=-1;
+		seat="-1";
 		seatClass=c;//what are the different claases 
 		if(seatClass=="First Class"){
 			carryOnAllowed=3;
@@ -30,7 +30,7 @@ public class Booking
 		if(seatClass=="Economy Class"){
 			carryOnAllowed=1;
 			checkBagsAllowed=2;
-			carryOneWeight=50;
+			carryOnWeight=50;
 			checkedBagWeight=20;
 		}
 	}

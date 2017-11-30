@@ -59,7 +59,7 @@ public class MainClass //don't touch this one
 		int i=0;
 		while(accounts[i]!=null)
 		{
-			if(accounts[i].getUsername()==s && accounts[i].getPassword()==p)
+			if(accounts[i].getUsername()==u && accounts[i].getPassword()==p)
 			{
 				currentUser=accounts[i];
 				return true;

@@ -7,14 +7,16 @@ public class LogOnScreen extends JPanel
 	JButton logInButton=new JButton("Log In");
 	JButton accountButton=new JButton("Create an Account");
 	View view;
+	JTextField usernameField;
+	JPasswordField passwordField;
 
 	LogOnScreen(View view)
 	{
 		this.view=view;
 		JLabel usernameLabel=new JLabel("Username: ");
 		JLabel passwordLabel=new JLabel("Password: ");
-		JTextField usernameField=new JTextField();
-		JPasswordField passwordField=new JPasswordField();
+		usernameField=new JTextField();
+		passwordField=new JPasswordField();
 
 		usernameField.setColumns(10);
 		passwordField.setColumns(10);

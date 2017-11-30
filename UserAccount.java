@@ -55,7 +55,12 @@ public class UserAccount
 
 	public String getRole()
 	{
-		return role;
+		if(adminRole!=null)
+			return "admin";
+		if(passengerRole!=null)
+			return "passenger";
+		if(employeeRole!=null)
+			return "personnel";
 	}
 
 
