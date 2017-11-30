@@ -203,7 +203,7 @@ public class View implements ActionListener
 			if(currentPanel.getClass().getName().equals("adminScreen"))
 			{
 				adminScreen c=(adminScreen)currentPanel;
-				
+
 				if(e.getSource().equals(c.viewPassengers))
 				{
 					prevScreens.push(currentPanel);
@@ -232,7 +232,7 @@ public class View implements ActionListener
 				if(e.getSource().equals(c.viewFeeds))
 				{
 					prevScreens.push(currentPanel);
-					changeScreen(new ViewFeedsScreen(this), true);
+					changeScreen(new SecurityScreen(this), true);
 				}
 				if(e.getSource().equals(c.viewServices))
 				{

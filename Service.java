@@ -2,6 +2,7 @@ public class Service
 {
 	Schedule schedule;
 	String type;
+	String name;
 	
 	public Service( 
 
