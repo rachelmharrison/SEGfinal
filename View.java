@@ -199,6 +199,87 @@ public class View implements ActionListener
 	
 				if(tracing)System.out.println("Create Account Screen would appear");
 			}
+
+			if(currentPanel.getClass().getName().equals("adminScreen"))
+			{
+				adminScreen c=(adminScreen)currentPanel;
+				
+				if(e.getSource().equals(c.viewPassengers))
+				{
+					prevScreens.push(currentPanel);
+					changeScreen(new ViewPassengersScreen(this), true);
+				}
+				if(e.getSource().equals(c.viewLuggage))
+				{
+					prevScreens.push(currentPanel);
+					changeScreen(new ViewLuggageScreen(this), true);
+				}
+				if(e.getSource().equals(c.viewPersonnel))
+				{
+					prevScreens.push(currentPanel);
+					changeScreen(new ViewPersonnelScreen(this), true);
+				}
+				if(e.getSource().equals(c.viewEventLogs))
+				{
+					prevScreens.push(currentPanel);
+					changeScreen(new ViewEventLogsScreen(this), true);
+				}
+				if(e.getSource().equals(c.viewFlights))
+				{
+					prevScreens.push(currentPanel);
+					changeScreen(new ViewFlightsScreen(this), true);
+				}
+				if(e.getSource().equals(c.viewFeeds))
+				{
+					prevScreens.push(currentPanel);
+					changeScreen(new ViewFeedsScreen(this), true);
+				}
+				if(e.getSource().equals(c.viewServices))
+				{
+					prevScreens.push(currentPanel);
+					changeScreen(new ViewServicesScreen(this), true);
+				}
+				if(e.getSource().equals(c.viewGuards))
+				{
+					prevScreens.push(currentPanel);
+					changeScreen(new ViewGuardsScreen(this), true);
+				}
+				if(e.getSource().equals(c.viewDeliveries))
+				{
+					prevScreens.push(currentPanel);
+					changeScreen(new ViewDeliveriesScreen(this), true);
+				}
+				if(e.getSource().equals(c.viewLineTimes))
+				{
+					prevScreens.push(currentPanel);
+					changeScreen(new ViewLineTimesScreen(this), true);
+				}
+				if(e.getSource().equals(c.logLuggage))
+				{
+					prevScreens.push(currentPanel);
+					changeScreen(new LuggageScreen(this), true);
+				}
+				if(e.getSource().equals(c.logPassenger))
+				{
+					prevScreens.push(currentPanel);
+					changeScreen(new TicketScreen(this), true);
+				}
+				if(e.getSource().equals(c.logEvent))
+				{
+					prevScreens.push(currentPanel);
+					changeScreen(new LogEventScreen(this), true);
+				}
+				if(e.getSource().equals(c.logPersonnel))
+				{
+					prevScreens.push(currentPanel);
+					changeScreen(new clockInOutScreen(this), true);
+				}
+				if(e.getSource().equals(c.logDelivery))
+				{
+					prevScreens.push(currentPanel);
+					changeScreen(new LogDeliveryScreen(this), true);
+				}
+			}
 		}
 
 	}
