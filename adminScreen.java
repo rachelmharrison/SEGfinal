@@ -4,9 +4,9 @@ import java.awt.*;
 
 public class adminScreen extends JPanel
 {
+	
 
-
-	adminScreen()
+	adminScreen(View view)
 	{
 		
 		JPanel leftPanel=new JPanel();

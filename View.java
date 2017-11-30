@@ -130,7 +130,26 @@ public class View implements ActionListener
 
 			if(e.getSource().equals(c.logOnButton))
 			{
-				
+				boolean valid=system.validateUser(c.usernameField.getText(), c.passwordField.getPassword());
+				if(valid==false)
+					JOptionPane.showMessageDialog(null, "There is an error in the username or password.", "Error", JOptionPane.ERROR_MESSAGE);
+				if(valid)
+				{
+					String role=system.getCurrentAccountType();
+					if(role=="Passenger")
+					{
+						//display screen for passenger
+					}
+					if(role=="Employee")
+					{
+						//display screen for employee
+					}
+					if(role=="Admin")
+					{
+						changeScreen(new adminScreen(this), true);
+					}
+				}
+			
 			}
 		}
 

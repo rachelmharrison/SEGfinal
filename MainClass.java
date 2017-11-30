@@ -67,4 +67,9 @@ public class MainClass //don't touch this one
 		}
 		return false;
 	}
+
+	public String getCurrentAccountType()
+	{
+		return currentUser.getRole();
+	}
 }

@@ -53,5 +53,10 @@ public class UserAccount
 		email=email;
 	}
 
+	public String getRole()
+	{
+		return role;
+	}
+
 
 }
