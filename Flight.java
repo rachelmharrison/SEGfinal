@@ -12,6 +12,10 @@ public class Flight
 	int idNumber;
 	String airline;
 	String airlineIdNumber;
+	
+	int lCounter=0;
+	int pCounter=0;
+	int fCounter=0;
 
 	Flight(String origin, String destination, String time, Plane plane, int idNumber, String airline, String airlineIdNumber)
 	{
@@ -73,63 +77,30 @@ public class Flight
 		return foodServed;
 	}
 	public void addFoodServed(String food){
-		String[]food=foodServed;
-		boolean flag=true;
-		int counter=0;
-		while(flag){
-			if(food[counter]==null){
-				food[counter]=food;
-				flag=false;
-			}else{	
-			counter++;
-				if (counter==100){
-					break;
-				}
-			}
+		if (fCounter!=100){
+			foodServed[fCounter]=food;
+			fCounter++;
 		}
-		foodServed=food;
 	}
 	//luggage
 	public Luggage[] getluggage(){
 		return luggage;
 	}
 	public void addLuggage(Luggage lugg){
-		Luggage[]lugg=luggage;
-		boolean flag=true;
-		int counter=0;
-		while(flag){
-			if(lugg[counter]==null){
-				lugg[counter]=lugg;
-				lugg=false;
-			}else{	
-			counter++;
-				if (counter==500){
-					break;
-				}
-			}
+		if (lCounter!=500){
+			luggage[lCounter]=lugg;
+			lCounter++;
 		}
-		luggage=lugg;
 	}
 	//passengers
 	public Passenger[] getPassengers(){
 		return passengers;
 	}
 	public void addPassengers(Passenger pass){
-		Passenger[]pass=passengers;
-		boolean flag=true;
-		int counter=0;
-		while(flag){
-			if(pass[counter]==null){
-				pass[counter]=pass;
-				flag=false;
-			}else{	
-			counter++;
-				if (counter==500){
-					break;
-				}
-			}
+		if (pCounter!=500){
+			passengers[pCounter]=pass;
+			pCounter++;
 		}
-		passengers=pass;
 	}
 	//plane
 	public Plane getPlane(){
