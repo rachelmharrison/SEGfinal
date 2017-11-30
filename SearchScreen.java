@@ -1,57 +1,22 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 
-public class SearchScreen
+public class SearchScreen extends JPanel
 {
 
-	SearchScreen(String category, int n, String[][] m, String s[])
+	View view;
+	JButton searchButton;
+	SearchScreen(String category, int n, String[][] m, String s[], View view)
 	{
-		JFrame frame=new JFrame("Airport Manager");
-		JPanel top=new JPanel();
-		JPanel main=new JPanel();
-		JPanel bottom=new JPanel();
-		JPanel borderLayoutPanel=new JPanel();
-
-		GridBagConstraints gbc=new GridBagConstraints();
-		JLabel employeeLabel=new JLabel("Employee Name: (name of logged in employee)  Employee Number: (########)");
-		JButton logOutButton=new JButton("Log Out");
-		JButton backButton=new JButton("Back");
-		JButton helpButton=new JButton("Help");
-
-		employeeLabel.setFont(new Font("Arial", Font.PLAIN, 20));
-		employeeLabel.setForeground(Color.GRAY);
-
-		logOutButton.setFont(new Font("Arial", Font.PLAIN, 20));
-		logOutButton.setBackground(Color.WHITE);
-		logOutButton.setForeground(Color.GRAY);
-		logOutButton.setBorderPainted(false);
-
-		backButton.setFont(new Font("Arial", Font.PLAIN, 20));
-		backButton.setBackground(Color.WHITE);
-		backButton.setForeground(Color.GRAY);
-		backButton.setBorderPainted(false);
-
-		helpButton.setFont(new Font("Arial", Font.PLAIN, 20));
-		helpButton.setBackground(Color.WHITE);
-		helpButton.setForeground(Color.GRAY);
-		helpButton.setBorderPainted(false);
-
-		top.setBackground(Color.WHITE);
-		top.setLayout(new BorderLayout());
-		top.add(employeeLabel, BorderLayout.WEST);
-		top.add(logOutButton, BorderLayout.	EAST);
-
-		bottom.setBackground(Color.WHITE);
-		bottom.setLayout(new BorderLayout());
-		bottom.add(backButton, BorderLayout.WEST);
-		bottom.add(helpButton, BorderLayout.	EAST);
-
-		//start of different code
 		
+		this.view=view;
 		JLabel fieldLabel=new JLabel(""+category+" ");
 		JTextField textFeild=new JTextField();
-		JButton searchButton=new JButton("Search");
+		searchButton=new JButton("Search");
+
+		searchButton.addActionListener(view);
 
 		fieldLabel.setFont(new Font("Arial", Font.BOLD, 30));
 		searchButton.setBackground(Color.WHITE);
@@ -83,13 +48,13 @@ public class SearchScreen
 
 		searchPanel.setBackground(Color.WHITE);
 		metricPanel.setBackground(Color.WHITE);
-		main.setLayout(new BorderLayout());
+		this.setLayout(new BorderLayout());
 
 		JPanel north=new JPanel();
 		north.setLayout(new BorderLayout());
 		north.add(searchPanel,BorderLayout.NORTH);
 		north.add(metricPanel, BorderLayout.SOUTH);
-		main.add(north, BorderLayout.NORTH);
+		this.add(north, BorderLayout.NORTH);
 
 		JLabel r1=new JLabel("Result 1");
 		JLabel r2=new JLabel("Result 2");
@@ -151,21 +116,8 @@ public class SearchScreen
 		results.add(r9);
 		results.add(r10);
 
-		main.add(results, BorderLayout.CENTER);
+		this.add(results, BorderLayout.CENTER);
 
 
-		//end of different code
-
-		borderLayoutPanel.setLayout(new BorderLayout());
-		borderLayoutPanel.add(top, BorderLayout.NORTH);
-		borderLayoutPanel.add(main, BorderLayout.CENTER);
-		borderLayoutPanel.add(bottom, BorderLayout.SOUTH);
-		borderLayoutPanel.setBackground(Color.WHITE);
-		main.setBackground(Color.WHITE);
-
-		frame.setContentPane(borderLayoutPanel);
-		frame.setVisible(true);
-		frame.setSize(1000,1000);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
