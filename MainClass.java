@@ -14,6 +14,7 @@ public class MainClass //don't touch this one
 //	Delivery[] deliveries=new Delivery[100];
 //	Personnel[] employees=new Personnel[100];
 //	Admin[] admins=new Admin[100];
+	UserAccount currentUser;
 
 	MainClass()
 	{
@@ -32,6 +33,37 @@ public class MainClass //don't touch this one
 		{
 			if(accounts[i].getUsername()==s)
 				return true;
+		}
+		return false;
+	}
+		
+
+	public boolean checkForEmail(String s)
+	{
+		int i=0;
+		while(accounts[i]!=null)
+		{
+			if(accounts[i].getEmail()==s)
+				return true;
+		}
+		return false;
+	}
+
+	public void createAccount(String u, String p, String n, String r, String d, char g, String e)
+	{
+
+	}
+
+	public boolean validateUser(String u, String p)
+	{
+		int i=0;
+		while(accounts[i]!=null)
+		{
+			if(accounts[i].getUsername()==s && accounts[i].getPassword()==p)
+			{
+				currentUser=accounts[i];
+				return true;
+			}
 		}
 		return false;
 	}

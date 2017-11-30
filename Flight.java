@@ -93,7 +93,7 @@ public class Flight
 	public Luggage[] getluggage(){
 		return luggage;
 	}
-	public void addLuggage(String lugg){
+	public void addLuggage(Luggage lugg){
 		Luggage[]lugg=luggage;
 		boolean flag=true;
 		int counter=0;
@@ -114,7 +114,7 @@ public class Flight
 	public Passenger[] getPassengers(){
 		return passengers;
 	}
-	public void addPassengers(String pass){
+	public void addPassengers(Passenger pass){
 		Passenger[]pass=passengers;
 		boolean flag=true;
 		int counter=0;

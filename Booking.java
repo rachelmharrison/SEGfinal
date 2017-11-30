@@ -42,4 +42,8 @@ public class Booking
 	public void setSeat(String seat){
 		seat=seat;
 	}
+
+	public Flight getFlight(){
+		return flight;
+	}
 }

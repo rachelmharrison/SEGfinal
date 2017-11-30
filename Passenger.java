@@ -1,7 +1,7 @@
 public class Passenger
 {
 	String location;
-	String passportCheck;
+	boolean passportCheck;
 	String timeIn;
 	String timeOut;
 	Booking[] bookings=new Booking[100];
@@ -11,17 +11,18 @@ public class Passenger
 	String name;
 	char gender;
 	String dob;
+	boolean customsPassed;
 
 	Passenger(String name, char gender, String dob)
 	{
 		this.name=name;
 		this.gender=gender;
 		this.dob=dob;
-		destination="";
 		location="not at airport";
 		timeIn="-1";
 		timeOut="-1";
 		passportCheck=false;
+		customsPassed=false;
 	}
 
 	public void addBooking(Booking b)

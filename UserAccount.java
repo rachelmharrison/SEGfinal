@@ -13,7 +13,7 @@ public class UserAccount
 		this.password=password;
 		this.passengerRole=p;
 		this.email=email;
-		system.addPassenger(passengerRole);
+		
 	}
 
 	UserAccount(String userName, String password, Personnel p, String email)
@@ -22,7 +22,7 @@ public class UserAccount
 		this.password=password;
 		this.employeeRole=p;
 		this.email=email;
-		system.addEmployee(employeeRole);
+
 	}
 
 	UserAccount(String userName, String password, Admin a, String email)
@@ -31,7 +31,7 @@ public class UserAccount
 		this.password=password;
 		this.adminRole=a;
 		this.email=email;
-		system.addAdmin(adminRole);
+
 	}
 	
 	public String getUsername(){

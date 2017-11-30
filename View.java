@@ -127,6 +127,11 @@ public class View implements ActionListener
 	
 				if(tracing)System.out.println("Create Account Screen would appear");
 			}
+
+			if(e.getSource().equals(c.logOnButton))
+			{
+				
+			}
 		}
 
 		if(currentPanel.getClass().getName().equals("CreateAccountScreen"))
@@ -137,19 +142,38 @@ public class View implements ActionListener
 				prevScreens.push(currentPanel);
 
 				String username=c.usernameField.getText();
-				String password1=c.passwordField1.getText();
-				String password2=c.passwordField2.getText();
+				String password1=c.passwordField1.getPassword().toString();
+				String password2=c.passwordField2.getPassword().toString();
 				String name=c.nameField.getText();
 				String role=(String)c.roleBox.getSelectedItem();
 				String dob=c.dobField.getText();
 				char gender=((String)c.genderBox.getSelectedItem()).charAt(0);
+				String email=c.emailField.getText();
 
 				boolean valid=true;
 
 				//test for username in system
-			//	if(system.checkForUsername())
+				if(system.checkForUsername(username))
+					valid=false;
+				if(system.checkForEmail(email))
+					valid=false;
 
-				changeScreen(new CreateAccountScreen(this), true);
+				if(password1!=password2)
+					valid=false;
+
+				if(username==""||password1.length()<8||name==""||email=="")
+					valid=false;
+
+				//add code that validates birthday here (set valid to false)
+
+				if(valid==false)
+					JOptionPane.showMessageDialog(null, "There is an error in one or more fields or account has already been created.", "Error", JOptionPane.ERROR_MESSAGE);
+
+				if(valid)
+				{
+					changeScreen(new CreateAccountScreen(this), true);
+					system.createAccount(username, password1, name, role, dob, gender, email);
+				}
 	
 				if(tracing)System.out.println("Create Account Screen would appear");
 			}
