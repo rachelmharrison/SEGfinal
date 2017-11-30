@@ -8,6 +8,7 @@ public class Event
 	String description;
 	Personnel[] guardsPresent=new Personnel[25];
 	Personnel guardInCharge;
+	int gCounter=0;
 	
 	
 	public Event(String d,String t,String c, String l, String des, Personnel g){
@@ -20,22 +21,12 @@ public class Event
 	}
 	
 	public void addGuard(Personnel g){
-		String[]gr=guardsPresent;
-		boolean flag=true;
-		int counter=0;
-		while(flag){
-			if(gr[counter]==null){
-				gr[counter]=g;
-				flag=false;
-			}else{	
-			counter++;
-				if (counter==25){
-					break;
-				}
-			}
+		if (gCounter!=100){
+			Personnel[gCounter]=g;
+			gCounter++;
 		}
-		guardsPresent=gr;
 	}
+	
 	public void setDate(String d){
 		date=d;
 	}
