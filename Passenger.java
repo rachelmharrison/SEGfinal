@@ -81,8 +81,31 @@ public class Passenger
 	}
 
 	//implement getters
-
-
-
-
+	public String getName(){
+		return name;
+	}
+	public char getGender(){
+		return gender;
+	}
+	public String getDOB(){
+		return dob;
+	}
+	public String getLocation(){
+		return location;
+	}
+	public boolean getPassportCheck(){
+		return passportCheck;
+	}
+	public Booking getCurrentBooking(){
+		return currentBooking;
+	}
+	public Flight getFlight(){
+		return currentFlight;
+	}
+	public String getTimeIn(){
+		return timeIn;
+	}
+	public String getTimeOut(){
+		return timeOut;
+	}
 }
