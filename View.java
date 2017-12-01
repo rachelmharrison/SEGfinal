@@ -1,3 +1,4 @@
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -187,7 +188,65 @@ public class View implements ActionListener
 
 				if(username==""||password1.length()<8||name==""||email=="")
 					valid=false;
-
+				//Here I am writing my code - Doyle
+				for (int x=0; x<dob.length(); x++){
+					//making sure numbers are in an appropriate order
+					if(x==0){//first digit of year, has to be either 1 or 2 since im going from 1900-2017
+						if(dob.charAt(x)!='1'||dob.charAt(x)!='2'){
+							valid=false;
+						}
+					}
+					if(x==1){//see above reasoning
+						if(dob.charAt(x)!='9'||dob.charAt(x)!='0'){
+							valid=false;
+						}
+					}
+					if(x==5){//first number for month, has to be 0 or 1
+						if(dob.charAt(x)!='0'||dob.charAt(x)!='1'){
+							valid=false;
+						}
+					}
+					if(x==8){//first number for day has to be 0-3
+						if(dob.charAt(x)!='0'||dob.charAt(x)!='1'||dob.charAt(x)!='2'||dob.charAt(x)!='3'){
+							valid=false;
+						}
+					}
+				}
+				//making strings to store individual datas to see if they valid
+				String dayy = "";
+				dayy+=dob.charAt(8);
+				dayy+=dob.charAt(9);
+				int day = Integer.parseInt(dayy);
+				String yearr = "";
+				yearr+=dob.charAt(0);
+				yearr+=dob.charAt(1);
+				yearr+=dob.charAt(2);
+				yearr+=dob.charAt(3);
+				int year = Integer.parseInt(yearr);
+				String monthh = "";
+				monthh+=dob.charAt(5);
+				monthh+=dob.charAt(6);
+				int month = Integer.parseInt(monthh);
+				//making sure numbers are valid i.e not feb 31 etc
+				if(month>12){//there's only 12 months
+					valid=false;
+				}
+				if (year>2017 || year<1900){//can't be a future birthday
+					valid=false;
+				}
+				if (day>31){//no months have more than 31 days, so don't need to check months with 31 days
+					valid=false;
+				}
+				if(monthh=="02"){//only feb has 28 days
+					if(day>28){
+						valid = false;
+					}
+				}
+				if(monthh!="04"||monthh!="06"||monthh!="09"||monthh!="11"){//apr, jun, sep, nov all have 30 days
+					if(day>30){
+						valid = false;
+					}
+				}
 				//add code that validates birthday here (set valid to false)
 
 				if(valid==false)
@@ -201,8 +260,6 @@ public class View implements ActionListener
 	
 				if(tracing)System.out.println("Create Account Screen would appear");
 			}
-
-		}
 
 			if(currentPanel.getClass().getName().equals("adminScreen"))
 			{
@@ -292,25 +349,12 @@ public class View implements ActionListener
 				ViewPassengersScreen c=(ViewPassengersScreen)currentPanel;
 				if(e.getSource().equals(c.searchButton))
 				{
-					boolean atAirport=false;
-					boolean inAir=false;
-					boolean isHighRisk=false;
-					String name;
-
-					if(c.cb[0].getSelectedItem().equals("yes"))
-						atAirport=true;
-					if(c.cb[1].getSelectedItem().equals("yes"))
-						inAir=true;
-					if(c.cb[2].getSelectedItem().equals("yes"))
-						isHighRisk=true;
-					name=c.textField.getText();
-
-					//String[] results=system.getPassengerResults(atAirport,inAir,isHighRisk,name);
-					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
-
+					//get metrics
+					//get results from system
 					//set results in screen
 				}
 			}
+<<<<<<< HEAD
 			if(currentPanel.getClass().getName().equals("ViewLuggageScreen"))
 			{
 				ViewLuggageScreen c=(ViewLuggageScreen)currentPanel;
@@ -376,7 +420,11 @@ public class View implements ActionListener
 				}
 			}
 
+=======
+>>>>>>> 313ed81677cd3b469513b82bbceb28ef588e7acb
 		}
+
+	}
 
 	public void changeScreen(JPanel panel, boolean border)
 	{
