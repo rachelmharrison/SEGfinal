@@ -8,4 +8,6 @@ Event - I really need this construtor done -SImone(DONE i think)
 
 Personnel - clock in and clock out functions need to be fixed. read comments in code. - Simone i think i did it
 
+MainClass/View - write a method that validates a username and password (in main class), call this from actionPerformed (in view) when a user presses the log in button, then show them the right screen ( a lot of the code is there but commented out)
+
 TEST
