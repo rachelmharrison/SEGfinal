@@ -9,12 +9,18 @@ public class SearchScreen extends JPanel
 	View view;
 	JButton searchButton;
 	JButton[] r;
+	JTextField textFeild;
+
+	JLabel [] metric=new JLabel[n];
+	JComboBox [] cb=new JComboBox[n];
+	JPanel metricPanel=new JPanel();
+
 	SearchScreen(String category, int n, String[][] m, String s[], View view)
 	{
 		
 		this.view=view;
 		JLabel fieldLabel=new JLabel(""+category+" ");
-		JTextField textFeild=new JTextField();
+		textFeild=new JTextField();
 		searchButton=new JButton("Search");
 
 		searchButton.addActionListener(view);
@@ -31,9 +37,7 @@ public class SearchScreen extends JPanel
 		searchPanel.add(textFeild);
 		searchPanel.add(searchButton);
 
-		JLabel [] metric=new JLabel[n];
-		JComboBox [] cb=new JComboBox[n];
-		JPanel metricPanel=new JPanel();
+		
 		for(int i=0; i<n; i++)
 		{
 			metric[i]=new JLabel(""+s[i]+": ");

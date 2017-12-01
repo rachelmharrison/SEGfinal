@@ -280,6 +280,17 @@ public class View implements ActionListener
 					changeScreen(new LogDeliveryScreen(this), true);
 				}
 			}
+
+			if(currentPanel.getClass().getName().equals("ViewPassengersScreen"))
+			{
+				ViewPassengersScreen c=(ViewPassengersScreen)currentPanel;
+				if(e.getSource().equals(c.searchButton))
+				{
+					//get metrics
+					//get results from system
+					//set results in screen
+				}
+			}
 		}
 
 	}
