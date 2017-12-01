@@ -13,7 +13,7 @@ public class Personnel
 	public void addShift(Shift s)
 	{	//implement
 		if (shiftCounter!=100){
-			currentShift[shiftCounter]=s;
+			Shift[shitfCounter]=s;
 			shiftCounter++;
 		}
 	}

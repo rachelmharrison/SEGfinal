@@ -6,5 +6,6 @@ View - compile and fix errors (mainly in flight class) ignore errors that say Vi
 
 Event - I really need this construtor done -SImone(DONE i think (I have to do the Personnel file before this 'works' unless you wanna take out the guardInCharge thingy) 
 
+Personnel - clock in and clock out functions need to be fixed. read comments in code.
 
 TEST
