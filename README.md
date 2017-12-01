@@ -5,6 +5,7 @@ MainClass - implement create user method, this ivolved creating a new user and a
 View - compile and fix errors (mainly in flight class) ignore errors that say ViewSOmethingsScreen don't exist RACHEL DONE
 
 Event - I really need this construtor done -SImone(DONE i think)
+
 Personnel - clock in and clock out functions need to be fixed. read comments in code. - Simone i think i did it
 
 TEST
