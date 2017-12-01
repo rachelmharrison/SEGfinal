@@ -13,7 +13,7 @@ public class WaitLine
 		peopleInLine++;
 	}
 
-	public int calculateWaitTimeInMinutes
+	public int calculateWaitTimeInMinutes()
 	{
 		return (int)((peopleInLine*timeInSecondsToProcessOnePerson)/60);
 	}

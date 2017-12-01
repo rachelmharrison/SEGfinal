@@ -24,7 +24,7 @@ public class Personnel
 	{
 		//should set current shift and clock-in time in that object
 		//String time=new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-		String time = (String) Calendar.getInstance().getTime();
+		String time = Calendar.getInstance().getTime().toString();
 		currentShift.clockIn(time);
 	}
 
@@ -34,7 +34,7 @@ public class Personnel
 		//store time in currentShift object
 		//reset currentShift 
 		//String time= new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-		String time = (String) Calendar.getInstance().getTime();
+		String time = Calendar.getInstance().getTime().toString();
 		currentShift.clockOut(time);
 
 	}

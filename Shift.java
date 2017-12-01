@@ -25,8 +25,7 @@ public class Shift
 	public void clockOut(String time){
 		if(timeIn!=null){
 			timeOut=time;
-		}else{
-			break;
 		}
+
 	}
 }

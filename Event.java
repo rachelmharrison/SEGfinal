@@ -22,7 +22,7 @@ public class Event
 	
 	public void addGuard(Personnel g){
 		if (gCounter!=25){
-			Personnel[gCounter]=g;
+			guardsPresent[gCounter]=g;
 			gCounter++;
 		}
 	}
