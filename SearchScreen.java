@@ -9,18 +9,21 @@ public class SearchScreen extends JPanel
 	View view;
 	JButton searchButton;
 	JButton[] r;
-	JTextField textFeild;
+	JTextField textField;
 
-	JLabel [] metric=new JLabel[n];
-	JComboBox [] cb=new JComboBox[n];
-	JPanel metricPanel=new JPanel();
+	JLabel [] metric;
+	JComboBox [] cb;
+	JPanel metricPanel;
 
 	SearchScreen(String category, int n, String[][] m, String s[], View view)
 	{
 		
 		this.view=view;
+		metric=new JLabel[n];
+		cb=new JComboBox[n];
+		metricPanel=new JPanel();
 		JLabel fieldLabel=new JLabel(""+category+" ");
-		textFeild=new JTextField();
+		textField=new JTextField();
 		searchButton=new JButton("Search");
 
 		searchButton.addActionListener(view);
@@ -29,19 +32,20 @@ public class SearchScreen extends JPanel
 		searchButton.setBackground(Color.WHITE);
 		searchButton.setBorderPainted(false);
 		searchButton.setFont(new Font("Arial", Font.BOLD, 30));
-		textFeild.setColumns(30);
-		textFeild.setFont(new Font("Arial", Font.PLAIN, 20));
+		textField.setColumns(30);
+		textField.setFont(new Font("Arial", Font.PLAIN, 20));
 
 		JPanel searchPanel=new JPanel();
 		searchPanel.add(fieldLabel);
-		searchPanel.add(textFeild);
+		searchPanel.add(textField);
 		searchPanel.add(searchButton);
 
 		
 		for(int i=0; i<n; i++)
 		{
 			metric[i]=new JLabel(""+s[i]+": ");
-			cb=new JComboBox(m[i]);
+			String[] temp=m[i];
+			cb[i]=new JComboBox(temp);
 			metric[i].setFont(new Font("Arial", Font.PLAIN, 20));
 			cb[i].setFont(new Font("Arial", Font.PLAIN, 20));
 			cb[i].setBackground(Color.WHITE);
@@ -69,6 +73,7 @@ public class SearchScreen extends JPanel
 
 		for(int i=0; i<20; i++)
 		{
+			r[i]=new JButton("Example Result");
 			r[i].setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
 			r[i].setBackground(Color.WHITE);
 			r[i].setFont(new Font("Arial", Font.PLAIN, 20));
@@ -84,8 +89,8 @@ public class SearchScreen extends JPanel
 
 	public void updateResults(String[] s)
 	{
-		int n=s.length();
-		for(int i<0; i<n || i<20; i++)
+		int n=s.length;
+		for(int i=0; (i<n || i<20); i++)
 		{
 			r[i].setText(s[i]);
 		}

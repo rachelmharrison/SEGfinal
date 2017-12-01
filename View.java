@@ -131,23 +131,25 @@ public class View implements ActionListener
 
 			if(e.getSource().equals(c.logInButton))
 			{
-				boolean valid=system.validateUser(c.usernameField.getText(), c.passwordField.getPassword().toString());
+				//boolean valid=system.validateUser(c.usernameField.getText(), c.passwordField.getPassword().toString());
+				//temp 
+				boolean valid=true;
 				if(valid==false)
 					JOptionPane.showMessageDialog(null, "There is an error in the username or password.", "Error", JOptionPane.ERROR_MESSAGE);
 				if(valid)
 				{
-					String role=system.getCurrentAccountType();
-					if(role=="Passenger")
+				//	String role=system.getCurrentAccountType();
+				//	if(role=="Passenger")
 					{
 						//display screen for passenger
 					}
-					if(role=="Employee")
+				//	if(role=="Employee")
 					{
 						//display screen for employee
 					}
-					if(role=="Admin")
+				//	if(role=="Admin")
 					{
-						changeScreen(new adminScreen(this), true);
+				//		changeScreen(new adminScreen(this), true);
 					}
 
 					//following code is temp until above is implemented
@@ -296,7 +298,7 @@ public class View implements ActionListener
 				if(e.getSource().equals(c.viewServices))
 				{
 					prevScreens.push(currentPanel);
-					changeScreen(new ViewServicesScreen(this), true);
+					changeScreen(new VIewServicesScreen(this), true);
 				}
 				if(e.getSource().equals(c.viewGuards))
 				{
@@ -325,8 +327,9 @@ public class View implements ActionListener
 				}
 				if(e.getSource().equals(c.logEvent))
 				{
-					prevScreens.push(currentPanel);
-					changeScreen(new LogEventScreen(this), true);
+				//	prevScreens.push(currentPanel);
+				//	changeScreen(new LogEventScreen(this), true);
+					//RACHEL DO THIS
 				}
 				if(e.getSource().equals(c.logPersonnel))
 				{
@@ -335,8 +338,9 @@ public class View implements ActionListener
 				}
 				if(e.getSource().equals(c.logDelivery))
 				{
-					prevScreens.push(currentPanel);
-					changeScreen(new LogDeliveryScreen(this), true);
+					//prevScreens.push(currentPanel);
+					//changeScreen(new LogDeliveryScreen(this), true);
+					//RACHEL DO THIS
 				}
 			}
 
@@ -350,6 +354,74 @@ public class View implements ActionListener
 					//set results in screen
 				}
 			}
+<<<<<<< HEAD
+			if(currentPanel.getClass().getName().equals("ViewLuggageScreen"))
+			{
+				ViewLuggageScreen c=(ViewLuggageScreen)currentPanel;
+				if(e.getSource().equals(c.searchButton))					{
+					
+					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			if(currentPanel.getClass().getName().equals("ViewPersonnelScreen"))
+			{
+				ViewPersonnelScreen c=(ViewPersonnelScreen)currentPanel;
+				if(e.getSource().equals(c.searchButton))					{
+					
+					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			if(currentPanel.getClass().getName().equals("ViewEventLogsScreen"))
+			{
+				ViewEventLogsScreen c=(ViewEventLogsScreen)currentPanel;
+				if(e.getSource().equals(c.searchButton))					{
+					
+					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			if(currentPanel.getClass().getName().equals("ViewFlightsScreen"))
+			{
+				ViewFlightsScreen c=(ViewFlightsScreen)currentPanel;
+				if(e.getSource().equals(c.searchButton))					{
+					
+					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			if(currentPanel.getClass().getName().equals("VIewServicesScreen"))
+			{
+				VIewServicesScreen c=(VIewServicesScreen)currentPanel;
+				if(e.getSource().equals(c.searchButton))					{
+					
+					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			if(currentPanel.getClass().getName().equals("ViewGuardsScreen"))
+			{
+				ViewGuardsScreen c=(ViewGuardsScreen)currentPanel;
+				if(e.getSource().equals(c.searchButton))					{
+					
+					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			if(currentPanel.getClass().getName().equals("ViewDeliveriesScreen"))
+			{
+				ViewDeliveriesScreen c=(ViewDeliveriesScreen)currentPanel;
+				if(e.getSource().equals(c.searchButton))					{
+					
+					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			if(currentPanel.getClass().getName().equals("ViewLineTimesScreen"))
+			{
+				ViewLineTimesScreen c=(ViewLineTimesScreen)currentPanel;
+				if(e.getSource().equals(c.searchButton))					{
+					
+					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+
+=======
+>>>>>>> 313ed81677cd3b469513b82bbceb28ef588e7acb
 		}
 
 	}

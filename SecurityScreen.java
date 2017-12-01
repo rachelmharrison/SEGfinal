@@ -2,12 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class SecurityScreen
+public class SecurityScreen extends JPanel
 {
 
-	SecurityScreen()
+	View view;
+	SecurityScreen(View view)
 	{
-		
+		this.view=view;
+		GridBagConstraints gbc=new GridBagConstraints();
 		ImageIcon feedIcon=new ImageIcon("images/cameraFeed.jpg");
 		JLabel feedLabel=new JLabel(feedIcon);
 		JLabel feedLabel2=new JLabel(feedIcon);
