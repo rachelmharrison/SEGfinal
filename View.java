@@ -82,8 +82,9 @@ public class View implements ActionListener
 		frame.setVisible(true);
 		frame.setSize(1000,1000);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		main.setBackground(Color.WHITE);
 		currentPanel=main;
+
 	}
 
 	public void actionPerformed(ActionEvent e)
@@ -260,6 +261,7 @@ public class View implements ActionListener
 	
 				if(tracing)System.out.println("Create Account Screen would appear");
 			}
+		}
 
 			if(currentPanel.getClass().getName().equals("adminScreen"))
 			{
@@ -354,7 +356,6 @@ public class View implements ActionListener
 					//set results in screen
 				}
 			}
-<<<<<<< HEAD
 			if(currentPanel.getClass().getName().equals("ViewLuggageScreen"))
 			{
 				ViewLuggageScreen c=(ViewLuggageScreen)currentPanel;
@@ -419,12 +420,8 @@ public class View implements ActionListener
 					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
-
-=======
->>>>>>> 313ed81677cd3b469513b82bbceb28ef588e7acb
 		}
 
-	}
 
 	public void changeScreen(JPanel panel, boolean border)
 	{
