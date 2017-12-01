@@ -61,6 +61,7 @@ public class UserAccount
 			return "passenger";
 		if(employeeRole!=null)
 			return "personnel";
+		return "";
 	}
 
 

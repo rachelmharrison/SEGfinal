@@ -200,6 +200,8 @@ public class View implements ActionListener
 				if(tracing)System.out.println("Create Account Screen would appear");
 			}
 
+		}
+
 			if(currentPanel.getClass().getName().equals("adminScreen"))
 			{
 				adminScreen c=(adminScreen)currentPanel;
@@ -337,25 +339,40 @@ public class View implements ActionListener
 					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
-			if(currentPanel.getClass().getName().equals("SecurityScreen"))
+			if(currentPanel.getClass().getName().equals("ViewServicesScreen"))
 			{
-				SecurityScreen c=(SecurityScreen)currentPanel;
+				ViewServicesScreen c=(ViewServicesScreen)currentPanel;
 				if(e.getSource().equals(c.searchButton))					{
 					
 					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
-			if(currentPanel.getClass().getName().equals("ViewPassengersScreen"))
+			if(currentPanel.getClass().getName().equals("ViewGuardsScreen"))
 			{
-				ViewLuggageScreen c=(ViewLuggageScreen)currentPanel;
+				ViewGuardsScreen c=(ViewGuardsScreen)currentPanel;
 				if(e.getSource().equals(c.searchButton))					{
 					
 					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
-		}
+			if(currentPanel.getClass().getName().equals("ViewDeliveriesScreen"))
+			{
+				ViewDeliveriesScreen c=(ViewDeliveriesScreen)currentPanel;
+				if(e.getSource().equals(c.searchButton))					{
+					
+					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			if(currentPanel.getClass().getName().equals("ViewLineTimesScreen"))
+			{
+				ViewLineTimesScreen c=(ViewLineTimesScreen)currentPanel;
+				if(e.getSource().equals(c.searchButton))					{
+					
+					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+			}
 
-	}
+		}
 
 	public void changeScreen(JPanel panel, boolean border)
 	{

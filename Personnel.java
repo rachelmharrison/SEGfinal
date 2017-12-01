@@ -1,3 +1,5 @@
+import java.util.Date.*;
+
 public class Personnel
 {
 	String role;
@@ -13,7 +15,7 @@ public class Personnel
 	public void addShift(Shift s)
 	{	//implement
 		if (shiftCounter!=100){
-			Shift[shitfCounter]=s;
+			shifts[shiftCounter]=s;
 			shiftCounter++;
 		}
 	}
