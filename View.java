@@ -286,9 +286,71 @@ public class View implements ActionListener
 				ViewPassengersScreen c=(ViewPassengersScreen)currentPanel;
 				if(e.getSource().equals(c.searchButton))
 				{
-					//get metrics
-					//get results from system
+					boolean atAirport=false;
+					boolean inAir=false;
+					boolean isHighRisk=false;
+					String name;
+
+					if(c.cb[0].getSelectedItem().equals("yes"))
+						atAirport=true;
+					if(c.cb[1].getSelectedItem().equals("yes"))
+						inAir=true;
+					if(c.cb[2].getSelectedItem().equals("yes"))
+						isHighRisk=true;
+					name=c.textField.getText();
+
+					//String[] results=system.getPassengerResults(atAirport,inAir,isHighRisk,name);
+					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+
 					//set results in screen
+				}
+			}
+			if(currentPanel.getClass().getName().equals("ViewLuggageScreen"))
+			{
+				ViewLuggageScreen c=(ViewLuggageScreen)currentPanel;
+				if(e.getSource().equals(c.searchButton))					{
+					
+					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			if(currentPanel.getClass().getName().equals("ViewPersonnelScreen"))
+			{
+				ViewPersonnelScreen c=(ViewPersonnelScreen)currentPanel;
+				if(e.getSource().equals(c.searchButton))					{
+					
+					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			if(currentPanel.getClass().getName().equals("ViewEventLogsScreen"))
+			{
+				ViewEventLogsScreen c=(ViewEventLogsScreen)currentPanel;
+				if(e.getSource().equals(c.searchButton))					{
+					
+					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			if(currentPanel.getClass().getName().equals("ViewFlightsScreen"))
+			{
+				ViewFLightsScreen c=(ViewFlightsScreen)currentPanel;
+				if(e.getSource().equals(c.searchButton))					{
+					
+					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			if(currentPanel.getClass().getName().equals("SecurityScreen"))
+			{
+				SecurityScreen c=(SecurityScreen)currentPanel;
+				if(e.getSource().equals(c.searchButton))					{
+					
+					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			if(currentPanel.getClass().getName().equals("ViewPassengersScreen"))
+			{
+				ViewLuggageScreen c=(ViewLuggageScreen)currentPanel;
+				if(e.getSource().equals(c.searchButton))					{
+					
+					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		}
