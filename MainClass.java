@@ -6,8 +6,8 @@ public class MainClass //don't touch this one
 	}
 
 	UserAccount[] accounts=new UserAccount[100];
-//	Passenger[] passengers=new Passenger[100];
-//	Flight[] flights=new Flight[100];
+	Passenger[] passengers=new Passenger[100];
+	Flight[] flights=new Flight[100];
 //	Luggage[] luggage=new Luggage[100];
 //	Event[] events=new Event[100];
 //	WaitLine[] waitLines=new WaitLines[100];
