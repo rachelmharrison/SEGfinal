@@ -21,18 +21,18 @@ public class Flight
 	{
 		//implement
 		//arriving is set by if statements inolving origin and destination airport codes
-		origin=origin;
-		destination=destination;
+		this.origin=origin;
+		this.destination=destination;
 		arrOrDepTime=time;
-		if(origin=YOW){//ottawa airport code to compare 
+		if(origin=="YOW"){//ottawa airport code to compare 
 			arriving=false;
 		}else{
 			arriving=true;
 		}
-		plane=plane;
-		idNumber=idNumber;
-		airline=airline;
-		airlineIdNumber=airlineIdNumber;
+		this.plane=plane;
+		this.idNumber=idNumber;
+		this.airline=airline;
+		this.airlineIdNumber=airlineIdNumber;
 		status="On Time";
 	}
 
@@ -49,7 +49,7 @@ public class Flight
 		return destination;
 	}
 	public void setDestination(String dest){
-		destinantion=dest;
+		this.destination=dest;
 	}	
 	//status
 	public String getStatus(){
