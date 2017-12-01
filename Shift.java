@@ -15,16 +15,18 @@ public class Shift
 		endTime=et;
 		month=m;
 		day=d;
-		timeIn=-1;
-		timeOut=-1;
+		//timeIn=;
+		//timeOut=-1;
 	}
 	//implement clock in/out methods that set timeIn and timeOut
 	public void clockIn(String time){
 		timeIn=time;
 	}
 	public void clockOut(String time){
-		if(timeIn!=-1){
+		if(timeIn!=null){
 			timeOut=time;
+		}else{
+			break;
 		}
 	}
 }

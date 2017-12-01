@@ -1,3 +1,5 @@
+import java.util.Calendar;
+
 public class Personnel
 {
 	String role;
@@ -13,7 +15,7 @@ public class Personnel
 	public void addShift(Shift s)
 	{	//implement
 		if (shiftCounter!=100){
-			Shift[shitfCounter]=s;
+			shifts[shiftCounter]=s;
 			shiftCounter++;
 		}
 	}
@@ -21,8 +23,9 @@ public class Personnel
 	public void clockIn(Shift shift)
 	{
 		//should set current shift and clock-in time in that object
-		String time=new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-		shift.clockIn(time);
+		//String time=new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		String time = (String) Calendar.getInstance().getTime();
+		currentShift.clockIn(time);
 	}
 
 	public void clockOut()
@@ -30,8 +33,9 @@ public class Personnel
 		//should only be possible if clocked in
 		//store time in currentShift object
 		//reset currentShift 
-		String time= new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-		shift.clockOut(time);
+		//String time= new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		String time = (String) Calendar.getInstance().getTime();
+		currentShift.clockOut(time);
 
 	}
 }
