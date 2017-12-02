@@ -13,7 +13,7 @@ public class Booking
 	{
 		//implement, seat should be -1 if still unassigned, assign luggage variables based on class
 		flight=f;
-		seat="-1";
+		seat=s;
 		seatClass=c;//what are the different claases 
 		if(seatClass=="First Class"){
 			carryOnAllowed=3;
