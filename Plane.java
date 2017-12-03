@@ -9,7 +9,7 @@ public class Plane
 	Flight currentFlight;
 	MaintanenceLog log;
 
-	Plane(String airline, int idNumber, int seatsFirst, int seatsBusiness, int seatsEconomy String type)
+	Plane(String airline, int idNumber, int seatsFirst, int seatsBusiness, int seatsEconomy, String type)
 	{
 		this.airline=airline;
 		this.idNumber=idNumber;
@@ -32,7 +32,7 @@ public class Plane
 	public int getSeatsFirst(){
 		return seatsFirst;
 	}
-	public int getAirline(){
+	public String getAirline(){
 		return airline;
 	}
 	public MaintanenceLog getLog(){

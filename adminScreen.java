@@ -148,21 +148,21 @@ public class adminScreen extends JPanel
 		JLabel logLabel=new JLabel("Log");
 		logLabel.setFont(new Font("Arial", Font.BOLD, 40));
 
-		leftPanel.setLayout(new GridLayout(11,1));
+		leftPanel.setLayout(new GridLayout(10,1));
 		leftPanel.setBackground(Color.WHITE);
 		leftPanel.add(viewLabel);
 		leftPanel.add(viewFlights);
 		leftPanel.add(viewPassengers);
 		leftPanel.add(viewLuggage);
 		leftPanel.add(viewPersonnel);
-		leftPanel.add(viewGuards);
+	//	leftPanel.add(viewGuards);
 		leftPanel.add(viewFeeds);
 		leftPanel.add(viewServices);
 		leftPanel.add(viewDeliveries);
 		leftPanel.add(viewLineTimes);
 		leftPanel.add(viewEventLogs);
 
-		rightPanel.setLayout(new GridLayout(11,1));
+		rightPanel.setLayout(new GridLayout(10,1));
 		rightPanel.setBackground(Color.WHITE);
 		rightPanel.add(logLabel);
 		rightPanel.add(logPassenger);

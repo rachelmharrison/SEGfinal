@@ -11,10 +11,10 @@ public class Luggage
 		//implement
 		//isLost should be set to false initially, location should be "checked in"
 		isLost=false;
-		passenger=passenger;
-		flight=flight;
-		weight=weight;
-		location="checked in";
+		this.passenger=passenger;
+		this.flight=flight;
+		this.weight=weight;
+		this.location="checked in";
 		
 		
 	}
@@ -34,4 +34,10 @@ public class Luggage
 	public void setLocation(String loc){
 		location=loc;
 	}
+
+	public String getPassengerName()
+	{
+		return passenger.getName();
+	}
+
 }

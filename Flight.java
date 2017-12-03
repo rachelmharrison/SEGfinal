@@ -59,7 +59,7 @@ public class Flight
 		status=stat;
 	}
 	//arrOrDepTime
-	public String getArrOrDepTime(){
+	public String getTime(){
 		return arrOrDepTime;
 	}
 	public void setArrOrDepTime(String tim){

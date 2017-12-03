@@ -270,27 +270,38 @@ public class View implements ActionListener
 				if(e.getSource().equals(c.viewPassengers))
 				{
 					prevScreens.push(currentPanel);
-					changeScreen(new ViewPassengersScreen(this), true);
+					ViewPassengersScreen s=new ViewPassengersScreen(this);
+					changeScreen(s, true);
+					s.updateResults(system.passengersToString());
+
 				}
 				if(e.getSource().equals(c.viewLuggage))
 				{
 					prevScreens.push(currentPanel);
-					changeScreen(new ViewLuggageScreen(this), true);
+					ViewLuggageScreen s=new ViewLuggageScreen(this);
+					changeScreen(s, true);
+					s.updateResults(system.luggageToString());
 				}
 				if(e.getSource().equals(c.viewPersonnel))
 				{
 					prevScreens.push(currentPanel);
-					changeScreen(new ViewPersonnelScreen(this), true);
+					ViewPersonnelScreen s=new ViewPersonnelScreen(this);
+					changeScreen(s, true);
+					s.updateResults(system.personnelToString());
 				}
 				if(e.getSource().equals(c.viewEventLogs))
 				{
 					prevScreens.push(currentPanel);
-					changeScreen(new ViewEventLogsScreen(this), true);
+					ViewEventLogsScreen s=new ViewEventLogsScreen(this);
+					changeScreen(s, true);
+					s.updateResults(system.eventsToString());
 				}
 				if(e.getSource().equals(c.viewFlights))
 				{
 					prevScreens.push(currentPanel);
-					changeScreen(new ViewFlightsScreen(this), true);
+					ViewFlightsScreen s=new ViewFlightsScreen(this);
+					changeScreen(s, true);
+					s.updateResults(system.flightsToString());
 				}
 				if(e.getSource().equals(c.viewFeeds))
 				{
@@ -300,22 +311,23 @@ public class View implements ActionListener
 				if(e.getSource().equals(c.viewServices))
 				{
 					prevScreens.push(currentPanel);
-					changeScreen(new VIewServicesScreen(this), true);
-				}
-				if(e.getSource().equals(c.viewGuards))
-				{
-					prevScreens.push(currentPanel);
-					changeScreen(new ViewGuardsScreen(this), true);
+					VIewServicesScreen s=new VIewServicesScreen(this);
+					changeScreen(s, true);
+					s.updateResults(system.servicesToString());
 				}
 				if(e.getSource().equals(c.viewDeliveries))
 				{
 					prevScreens.push(currentPanel);
-					changeScreen(new ViewDeliveriesScreen(this), true);
+					ViewDeliveriesScreen s=new ViewDeliveriesScreen(this);
+					changeScreen(s, true);
+					s.updateResults(system.deliveriesToString());
 				}
 				if(e.getSource().equals(c.viewLineTimes))
 				{
 					prevScreens.push(currentPanel);
-					changeScreen(new ViewLineTimesScreen(this), true);
+					ViewLineTimesScreen s=new ViewLineTimesScreen(this);
+					changeScreen(s, true);
+					s.updateResults(system.waitLinesToString());
 				}
 				if(e.getSource().equals(c.logLuggage))
 				{
@@ -351,9 +363,7 @@ public class View implements ActionListener
 				ViewPassengersScreen c=(ViewPassengersScreen)currentPanel;
 				if(e.getSource().equals(c.searchButton))
 				{
-					//get metrics
-					//get results from system
-					//set results in screen
+					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 			if(currentPanel.getClass().getName().equals("ViewLuggageScreen"))
@@ -420,6 +430,7 @@ public class View implements ActionListener
 					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
+
 		}
 
 

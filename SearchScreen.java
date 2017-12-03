@@ -73,7 +73,7 @@ public class SearchScreen extends JPanel
 
 		for(int i=0; i<20; i++)
 		{
-			r[i]=new JButton("Example Result");
+			r[i]=new JButton();
 			r[i].setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
 			r[i].setBackground(Color.WHITE);
 			r[i].setFont(new Font("Arial", Font.PLAIN, 20));
@@ -90,7 +90,7 @@ public class SearchScreen extends JPanel
 	public void updateResults(String[] s)
 	{
 		int n=s.length;
-		for(int i=0; (i<n || i<20); i++)
+		for(int i=0; (i<n && i<20); i++)
 		{
 			r[i].setText(s[i]);
 		}

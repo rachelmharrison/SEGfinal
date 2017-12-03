@@ -6,11 +6,19 @@ public class Personnel
 	Shift[] shifts=new Shift[100];
 	Shift currentShift;
 	int shiftCounter=0;
+	String name;
 
-	Personnel(String role)
+	Personnel(String role, String name)
 	{
 		this.role=role;
+		this.name=name;
 	}
+
+	public String getName()
+	{
+		return name;
+	}
+
 
 	public void addShift(Shift s)
 	{	//implement
