@@ -276,6 +276,27 @@ public class MainClass //don't touch this one
 		return s;
 	}
 
+	public Flight findFlight(String id)
+	{
+		int i=0;
+		while(flights[i]!=null)
+			if(flights[i].getAirlineIdNumber()==id)
+				return flights[i];
+
+		return null;
+	}
+
+	public Event findEvent(String cat, String date)
+	{
+		int i=0;
+		while(events[i]!=null)
+			if(events[i].getCategory()==cat && events[i].getDate()==date)
+				return events[i];
+
+		return null;
+
+	}
+
 
 
 }

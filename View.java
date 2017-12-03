@@ -365,6 +365,12 @@ public class View implements ActionListener
 				{
 					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
 				}
+				else
+				{
+					//make this screen maybe
+
+
+				}
 			}
 			if(currentPanel.getClass().getName().equals("ViewLuggageScreen"))
 			{
@@ -372,6 +378,10 @@ public class View implements ActionListener
 				if(e.getSource().equals(c.searchButton))					{
 					
 					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+				else
+				{
+					//MAKE THIS SCREEN MAYBE
 				}
 			}
 			if(currentPanel.getClass().getName().equals("ViewPersonnelScreen"))
@@ -381,6 +391,9 @@ public class View implements ActionListener
 					
 					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
 				}
+				else{
+					//MAKE THIS SCREEN MAYBE
+				}
 			}
 			if(currentPanel.getClass().getName().equals("ViewEventLogsScreen"))
 			{
@@ -388,6 +401,16 @@ public class View implements ActionListener
 				if(e.getSource().equals(c.searchButton))					{
 					
 					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+				else
+				{
+					String text=e.getActionCommand();
+					StringTokenizer st=new StringTokenizer();
+					String category=st.next();
+					String date=st.next();
+					Event event=system.findEvent(cateogry, date);
+					prevScreens.push(currentPanel);
+					changeScreen(new EventLogViewScreen(event));
 				}
 			}
 			if(currentPanel.getClass().getName().equals("ViewFlightsScreen"))
@@ -397,6 +420,15 @@ public class View implements ActionListener
 					
 					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
 				}
+				else
+				{
+					String text=e.getActionCommand();
+					StringTokenizer st=new StringTokenizer();
+					String id=st.next();
+					Flight flight=system.findFlight(id);
+					prevScreens.push(currentPanel);
+					changeScreen(new FlightViewScreen(flight));
+				}
 			}
 			if(currentPanel.getClass().getName().equals("VIewServicesScreen"))
 			{
@@ -405,13 +437,9 @@ public class View implements ActionListener
 					
 					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
 				}
-			}
-			if(currentPanel.getClass().getName().equals("ViewGuardsScreen"))
-			{
-				ViewGuardsScreen c=(ViewGuardsScreen)currentPanel;
-				if(e.getSource().equals(c.searchButton))					{
-					
-					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				else
+				{
+					//DO THIS MAYBE
 				}
 			}
 			if(currentPanel.getClass().getName().equals("ViewDeliveriesScreen"))
@@ -421,6 +449,10 @@ public class View implements ActionListener
 					
 					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
 				}
+				else
+				{
+					//DO THIS MAYBE
+				}
 			}
 			if(currentPanel.getClass().getName().equals("ViewLineTimesScreen"))
 			{
@@ -428,6 +460,10 @@ public class View implements ActionListener
 				if(e.getSource().equals(c.searchButton))					{
 					
 					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+				else
+				{
+					//DO THIS MAYBE
 				}
 			}
 
