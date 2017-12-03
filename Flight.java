@@ -12,18 +12,20 @@ public class Flight
 	int idNumber;
 	String airline;
 	String airlineIdNumber;
+	String date;
 	
 	int lCounter=0;
 	int pCounter=0;
 	int fCounter=0;
 
-	Flight(String origin, String destination, String time, Plane plane, int idNumber, String airline, String airlineIdNumber)
+	Flight(String origin, String destination, String time, Plane plane, int idNumber, String airline, String airlineIdNumber, String date)
 	{
 		//implement
 		//arriving is set by if statements inolving origin and destination airport codes
 		this.origin=origin;
 		this.destination=destination;
 		arrOrDepTime=time;
+		this.date=date;
 		if(origin=="YOW"){//ottawa airport code to compare 
 			arriving=false;
 		}else{
@@ -131,4 +133,8 @@ public class Flight
 		airlineIdNumber=air;
 	}
 	
+	public String getDate()
+	{
+		return date;
+	}
 }

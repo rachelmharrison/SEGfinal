@@ -58,5 +58,10 @@ public class Event
 	public Personnel[] getGuards(){
 		return guardsPresent;
 	}
+
+	public String getDescription()
+	{
+		return description;
+	}
 	
 }

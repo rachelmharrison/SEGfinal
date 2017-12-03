@@ -2,6 +2,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.StringTokenizer;
 
 public class View implements ActionListener
 {
@@ -302,6 +303,7 @@ public class View implements ActionListener
 					ViewFlightsScreen s=new ViewFlightsScreen(this);
 					changeScreen(s, true);
 					s.updateResults(system.flightsToString());
+					if(tracing)System.out.println("All good so far");
 				}
 				if(e.getSource().equals(c.viewFeeds))
 				{
@@ -398,36 +400,42 @@ public class View implements ActionListener
 			if(currentPanel.getClass().getName().equals("ViewEventLogsScreen"))
 			{
 				ViewEventLogsScreen c=(ViewEventLogsScreen)currentPanel;
+				
 				if(e.getSource().equals(c.searchButton))					{
 					
 					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
 				}
-				else
+				else if(e.getSource().getClass().getName().equals("JButton"))
 				{
 					String text=e.getActionCommand();
-					StringTokenizer st=new StringTokenizer();
-					String category=st.next();
-					String date=st.next();
-					Event event=system.findEvent(cateogry, date);
+					StringTokenizer st=new StringTokenizer(text);
+					String category=st.nextToken();
+					String date=st.nextToken();
+					Event event=system.findEvent(category, date);
 					prevScreens.push(currentPanel);
-					changeScreen(new EventLogViewScreen(event));
+					changeScreen(new EventLogViewScreen(event), true);
 				}
 			}
 			if(currentPanel.getClass().getName().equals("ViewFlightsScreen"))
 			{
 				ViewFlightsScreen c=(ViewFlightsScreen)currentPanel;
+				if(tracing)System.out.println("SOMETHING IS WRONG");
 				if(e.getSource().equals(c.searchButton))					{
 					
 					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
 				}
-				else
+				else if(e.getActionCommand().length()>15)
 				{
+					if(tracing)System.out.println("Button clicked");
 					String text=e.getActionCommand();
-					StringTokenizer st=new StringTokenizer();
-					String id=st.next();
+					StringTokenizer st=new StringTokenizer(text);
+					String id=st.nextToken();
+					if(tracing)System.out.println("Find flight about to run");
 					Flight flight=system.findFlight(id);
 					prevScreens.push(currentPanel);
-					changeScreen(new FlightViewScreen(flight));
+					if(tracing)System.out.println("ID: "+id+".");
+					changeScreen(new FlightScreen(flight, this), true);
+					if(tracing)System.out.println("end of if reached");
 				}
 			}
 			if(currentPanel.getClass().getName().equals("VIewServicesScreen"))

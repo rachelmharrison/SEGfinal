@@ -6,7 +6,7 @@ public class EventLogViewScreen extends JPanel
 {
 	View view;
 	Event event;
-	EventLogViewScreen(View view, Event event)
+	EventLogViewScreen(Event event)
 	{
 		this.view=view;
 		this.event=event;
@@ -17,17 +17,17 @@ public class EventLogViewScreen extends JPanel
 		JLabel titleLabel=new JLabel("Event Log");
 		titleLabel.setFont(new Font("Arial", Font.BOLD, 80));
 
-		JTextArea eventInfo=new JTextArea("\n\nDate: "+event.getDate()+"\nTime: "+event.getTime()+"\nEvent Category: "+event.getCategory()+"\nLocation(s): "+event.getLocation();
+		JTextArea eventInfo=new JTextArea("\n\nDate: "+event.getDate()+"\nTime: "+event.getTime()+"\nEvent Category: "+event.getCategory()+"\nLocation(s): "+event.getLocation());
 		eventInfo.setEditable(false);
 		eventInfo.setFont(new Font("Arial", Font.PLAIN, 20));
 		JTextArea description=new JTextArea("Description: "+event.getDescription());
 		description.setFont(new Font("Arial", Font.PLAIN, 20));
-		description.setEditable(fasle);
+		description.setEditable(false);
 		description.setLineWrap(true);
-		description.setWrapStyleWords(true);
+		description.setWrapStyleWord(true);
 
 		JTextArea guards=new JTextArea("Guard(s): ");
-		Personnel p=event.getGuards();
+		Personnel[] p=event.getGuards();
 		for (int i=0; i<p.length; i++)
 		{
 			guards.append("\n"+p[i].getName());

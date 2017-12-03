@@ -16,6 +16,7 @@ public class MainClass //don't touch this one
 	Admin[] admins=new Admin[100];
 	UserAccount currentUser;
 	Service[] services=new Service[100];
+	boolean tracing=true;
 
 	MainClass()
 	{
@@ -34,11 +35,11 @@ public class MainClass //don't touch this one
 		Plane plane5=new Plane("United",0005, 30, 100, 500, "B707");
 
 		
-		flights[0]=new Flight("YYZ","YOW","15:05",plane1, 0001, "Air Canada", "AC200");
-		flights[1]=new Flight("YHZ","YOW","15:20",plane2, 0002, "West Jet", "WJ345");
-		flights[2]=new Flight("YOW","YTZ","15:35",plane3, 0003, "Porter", "P678");
-		flights[3]=new Flight("YUL","YOW","15:40",plane4, 0004, "Air Canada", "AC453");
-		flights[4]=new Flight("YOW","ERW","15:45",plane5, 0005, "United", "UN218");
+		flights[0]=new Flight("YYZ","YOW","15:05",plane1, 0001, "Air Canada", "AC200","2017/12/03");
+		flights[1]=new Flight("YHZ","YOW","15:20",plane2, 0002, "West Jet", "WJ345","2017/12/03");
+		flights[2]=new Flight("YOW","YTZ","15:35",plane3, 0003, "Porter", "P678","2017/12/03");
+		flights[3]=new Flight("YUL","YOW","15:40",plane4, 0004, "Air Canada", "AC453","2017/12/03");
+		flights[4]=new Flight("YOW","ERW","15:45",plane5, 0005, "United", "UN218","2017/12/03");
 
 		Booking booking1=new Booking(flights[0], "2A", "First Class");
 		Booking booking2=new Booking(flights[1], "29D", "Economy Class");
@@ -278,20 +279,34 @@ public class MainClass //don't touch this one
 
 	public Flight findFlight(String id)
 	{
+
 		int i=0;
 		while(flights[i]!=null)
-			if(flights[i].getAirlineIdNumber()==id)
+		{
+			if(tracing)System.out.println(flights[i].getAirlineIdNumber());
+
+			if(flights[i].getAirlineIdNumber().equals(id))
+			{
+				
 				return flights[i];
+			}
+			i++;
+		}
+
 
 		return null;
 	}
 
 	public Event findEvent(String cat, String date)
 	{
+		if(tracing)System.out.println("find flight running");
 		int i=0;
 		while(events[i]!=null)
+		{
 			if(events[i].getCategory()==cat && events[i].getDate()==date)
 				return events[i];
+			i++;
+		}
 
 		return null;
 
