@@ -143,13 +143,13 @@ public class View implements ActionListener
 				{
 					String role=system.getCurrentAccountType();
 					if(tracing)System.out.println(role);
-					if(role=="Passenger")
+					if(role=="passenger")
 					{
 						JOptionPane.showMessageDialog(null, "This function has not been implemented. Please log in with an admin account", "Error", JOptionPane.ERROR_MESSAGE);
 					}
-					if(role=="Employee")
+					if(role=="employee")
 					{
-						//JOptionPane.showMessageDialog(null, "This function has not been implemented. Please log in with an admin account", "Error", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "This function has not been implemented. Please log in with an admin account", "Error", JOptionPane.ERROR_MESSAGE);
 					}
 					if(role=="admin")
 					{
