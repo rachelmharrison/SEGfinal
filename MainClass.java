@@ -303,13 +303,27 @@ public class MainClass //don't touch this one
 		int i=0;
 		while(events[i]!=null)
 		{
-			if(events[i].getCategory()==cat && events[i].getDate()==date)
+			if(events[i].getCategory().equals(cat)&& events[i].getDate().equals(date))
 				return events[i];
 			i++;
 		}
 
 		return null;
 
+	}
+
+	public Personnel findGuard(String name)
+	{
+		int i=0;
+		while(employees[i]!=null)
+		{
+			if(employees[i].getName().equals(name) && employees[i].getRole().equalsIgnoreCase("Security"))
+			{
+				return employees[i];
+			}
+			i++;
+		}
+		return null;
 	}
 
 

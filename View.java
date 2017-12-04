@@ -343,8 +343,9 @@ public class View implements ActionListener
 				}
 				if(e.getSource().equals(c.logEvent))
 				{
-				//	prevScreens.push(currentPanel);
-				//	changeScreen(new LogEventScreen(this), true);
+					
+					prevScreens.push(currentPanel);
+					changeScreen(new LogEventView(this), true);
 					//RACHEL DO THIS
 				}
 				if(e.getSource().equals(c.logPersonnel))
@@ -472,6 +473,27 @@ public class View implements ActionListener
 				else
 				{
 					//DO THIS MAYBE
+				}
+			}
+			if(currentPanel.getClass().getName().equals("LogEventView"))
+			{
+				LogEventView c=(LogEventView)currentPanel;
+				if(e.getSource().equals(c.saveButton))
+				{
+					String category=(String)c.category.getSelectedItem();
+					String location=c.locationField.getText();
+					String description=c.descriptionField.getText();
+					String name=c.guardField.getText();
+					Guard guard=system.findGuard(name);
+					if(guard==null)
+						JOptionPane.showMessageDialog(null, "No such guard exists.", "Error", JOptionPane.ERROR_MESSAGE);
+					else
+					{
+						system.createEvent();
+						changeScreen((JPanel)prevScreens.pop(), true);
+						//MAKE THE CREATE EVENT FILE, MAKE GUARDS HARDCODED IN
+					}
+					
 				}
 			}
 

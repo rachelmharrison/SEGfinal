@@ -9,7 +9,7 @@ public class Event
 	Personnel[] guardsPresent=new Personnel[25];
 	Personnel guardInCharge;
 	int gCounter=0;
-	
+		
 	
 	public Event(String d,String t,String c, String l, String des, Personnel g){
 		date=d;

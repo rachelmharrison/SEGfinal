@@ -19,6 +19,10 @@ public class Personnel
 		return name;
 	}
 
+	public String getRole()
+	{
+		return role;
+	}
 
 	public void addShift(Shift s)
 	{	//implement
