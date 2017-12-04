@@ -25,12 +25,12 @@ public class clockInOutScreen extends JPanel
 
 
 		JPanel s1=new JPanel();
-		b1.setFont(new Font("Arial", Font.PLAIN, 40));
+		b1.setFont(new Font("Arial", Font.PLAIN, 30));
 		b1.setBackground(Color.WHITE);
 		b1.setBorderPainted(false);
 		s1.setBackground(Color.WHITE);
 
-		b2.setFont(new Font("Arial", Font.PLAIN, 40));
+		b2.setFont(new Font("Arial", Font.PLAIN, 30));
 		b2.setBackground(Color.WHITE);
 		b2.setBorderPainted(false);
 
@@ -48,7 +48,7 @@ public class clockInOutScreen extends JPanel
 			shiftLabel[i]=new JLabel(shifts[i].toString());
 			if(i==0)
 			{
-				shiftLabel[i].setFont(new Font("Arial", Font.BOLD, 40));
+				shiftLabel[i].setFont(new Font("Arial", Font.BOLD, 30));
 				s1.add(shiftLabel[i]);
 				s1.add(b1);
 				s1.add(b2);
@@ -57,7 +57,7 @@ public class clockInOutScreen extends JPanel
 			}
 			else
 			{
-				shiftLabel[i].setFont(new Font("Arial", Font.PLAIN, 40));
+				shiftLabel[i].setFont(new Font("Arial", Font.PLAIN, 30));
 				c.add(shiftLabel[i]);
 			}
 		}

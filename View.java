@@ -17,7 +17,7 @@ public class View implements ActionListener
 	JPanel bottom;
 	JFrame frame;
 	JPanel borderLayoutPanel;
-	boolean tracing=true;
+	boolean tracing=false;
 	JLabel employeeLabel;
 
 	View(MainClass system)
@@ -85,6 +85,7 @@ public class View implements ActionListener
 		frame.setSize(1000,1000);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		main.setBackground(Color.WHITE);
+		frame.setLocationRelativeTo(null);
 		currentPanel=main;
 
 	}

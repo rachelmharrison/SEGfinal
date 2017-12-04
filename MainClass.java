@@ -16,10 +16,24 @@ public class MainClass //don't touch this one
 	Admin[] admins=new Admin[100];
 	UserAccount currentUser;
 	Service[] services=new Service[100];
-	boolean tracing=true;
+	boolean tracing=false;
 
 	MainClass()
 	{
+		waitLines[0]=new WaitLine(30, "Security Checkpoint Domestic");
+		waitLines[1]=new WaitLine(4, "Security Checkpoint International");
+		waitLines[2]=new WaitLine(90, "US Customs");
+		waitLines[3]=new WaitLine(80, "Canada Customs");
+
+		deliveries[0]=new Delivery("Printer Paper");
+		deliveries[1]=new Delivery("Cleaning Products");
+		deliveries[2]=new Delivery("Food");
+
+		services[0]=new Service("Tim Hortons", "Shop");
+		services[1]=new Service("McDonalds", "Shop");
+		services[2]=new Service("Catering Service", "Catering");
+		services[3]=new Service("Cleaning Service", "Cleaning");
+
 		Admin admin1=new Admin("Rachel");
 		Admin admin2=new Admin("Alanna");
 		Admin admin3=new Admin("Simone");

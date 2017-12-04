@@ -39,5 +39,7 @@ public class LuggageScreen extends JPanel
 		gbc.gridx=0;
 		this.add(printButton,BorderLayout.SOUTH);
 
+		this.setBackground(Color.WHITE);
+
 	}
 }

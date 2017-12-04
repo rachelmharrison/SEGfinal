@@ -33,5 +33,7 @@ public class TicketScreen extends JPanel
 		JLabel checkLabel=new JLabel(check);
 		this.add(checkLabel);
 
+		this.setBackground(Color.WHITE);
+
 	}
 }
