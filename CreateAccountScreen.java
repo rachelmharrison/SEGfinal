@@ -104,7 +104,7 @@ public class CreateAccountScreen extends JPanel
 		this.add(passwordField2, gbc);
 		gbc.gridy=30;
 		this.add(nameField, gbc);
-		gbc.gridy=75;
+		gbc.gridy=35;
 		this.add(emailField, gbc);
 		gbc.gridy=40;
 		this.add(roleBox, gbc);

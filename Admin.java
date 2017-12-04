@@ -8,4 +8,9 @@ public class Admin
 	{
 		this.name=name;
 	}
+
+	public String getName()
+	{
+		return name;
+	}
 }

@@ -18,6 +18,7 @@ public class View implements ActionListener
 	JFrame frame;
 	JPanel borderLayoutPanel;
 	boolean tracing=true;
+	JLabel employeeLabel;
 
 	View(MainClass system)
 	{
@@ -36,7 +37,7 @@ public class View implements ActionListener
 		bottom=new JPanel();
 		//borderLayoutPanel=new JPanel();
 
-		JLabel employeeLabel=new JLabel("Welcome: (name of logged in user)");
+		employeeLabel=new JLabel("Welcome: (name of logged in user)");
 		logOutButton=new JButton("Log Out");
 		backButton=new JButton("Back");
 		helpButton=new JButton("Help");
@@ -133,29 +134,30 @@ public class View implements ActionListener
 
 			if(e.getSource().equals(c.logInButton))
 			{
-				//boolean valid=system.validateUser(c.usernameField.getText(), c.passwordField.getPassword().toString());
-				//temp 
-				boolean valid=true;
+				boolean valid=system.validateUser(c.usernameField.getText(), c.passwordField.getPassword());
+				if(tracing)System.out.println(valid);
+			//	boolean valid=true;
 				if(valid==false)
 					JOptionPane.showMessageDialog(null, "There is an error in the username or password.", "Error", JOptionPane.ERROR_MESSAGE);
 				if(valid)
 				{
-				//	String role=system.getCurrentAccountType();
-				//	if(role=="Passenger")
+					String role=system.getCurrentAccountType();
+					if(tracing)System.out.println(role);
+					if(role=="Passenger")
+					{
+						JOptionPane.showMessageDialog(null, "This function has not been implemented. Please log in with an admin account", "Error", JOptionPane.ERROR_MESSAGE);
+					}
+					if(role=="Employee")
 					{
 						//JOptionPane.showMessageDialog(null, "This function has not been implemented. Please log in with an admin account", "Error", JOptionPane.ERROR_MESSAGE);
 					}
-				//	if(role=="Employee")
+					if(role=="admin")
 					{
-						//JOptionPane.showMessageDialog(null, "This function has not been implemented. Please log in with an admin account", "Error", JOptionPane.ERROR_MESSAGE);
-					}
-				//	if(role=="Admin")
-					{
-				//		changeScreen(new adminScreen(this), true);
+						employeeLabel.setText("Welcome: "+system.getCurrentUserName());
+						changeScreen(new adminScreen(this), true);
 					}
 
-					//following code is temp until above is implemented
-					changeScreen(new adminScreen(this), true);
+		
 				}
 			
 			}
@@ -166,11 +168,12 @@ public class View implements ActionListener
 			CreateAccountScreen c=(CreateAccountScreen)currentPanel;
 			if(e.getSource().equals(c.confirmButton))
 			{
+				if(tracing)System.out.println("method is running");
 				prevScreens.push(currentPanel);
 
 				String username=c.usernameField.getText();
-				String password1=c.passwordField1.getPassword().toString();
-				String password2=c.passwordField2.getPassword().toString();
+				String password1=c.passwordField1.getText();
+				String password2=c.passwordField2.getText();
 				String name=c.nameField.getText();
 				String role=(String)c.roleBox.getSelectedItem();
 				String dob=c.dobField.getText();
@@ -182,16 +185,20 @@ public class View implements ActionListener
 				//test for username in system
 				if(system.checkForUsername(username))
 					valid=false;
+				if(tracing)System.out.println(valid);
 				if(system.checkForEmail(email))
 					valid=false;
-
-				if(password1!=password2)
+				if(tracing)System.out.println(valid);
+				if(tracing)System.out.println("1: "+password1+" 2: "+password2);
+				if(password1.equals(password2)==false)
 					valid=false;
+				if(tracing)System.out.println(valid);
+				if(tracing)System.out.println("Working up until the code Alan wrote");
 
 				if(username==""||password1.length()<8||name==""||email=="")
 					valid=false;
 				//Here I am writing my code - Doyle
-				for (int x=0; x<dob.length(); x++){
+				/*for (int x=0; x<dob.length(); x++){
 					//making sure numbers are in an appropriate order
 					if(x==0){//first digit of year, has to be either 1 or 2 since im going from 1900-2017
 						if(dob.charAt(x)!='1'||dob.charAt(x)!='2'){
@@ -248,7 +255,7 @@ public class View implements ActionListener
 					if(day>30){
 						valid = false;
 					}
-				}
+				}*/
 				//add code that validates birthday here (set valid to false)
 
 				if(valid==false)
@@ -256,11 +263,12 @@ public class View implements ActionListener
 
 				if(valid)
 				{
-					changeScreen(new CreateAccountScreen(this), true);
 					system.createAccount(username, password1, name, role, dob, gender, email);
+					changeScreen(new LogOnScreen(this), true);
+					
 				}
 	
-				if(tracing)System.out.println("Create Account Screen would appear");
+				if(tracing)System.out.println("reached end");
 			}
 		}
 

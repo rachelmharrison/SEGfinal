@@ -64,5 +64,16 @@ public class UserAccount
 		return "";
 	}
 
+	public String getName()
+	{
+		if(adminRole!=null)
+			return adminRole.getName();
+		if(passengerRole!=null)
+			return passengerRole.getName();
+		if(employeeRole!=null)
+			return employeeRole.getName();
+		return "";
+	}
+
 
 }

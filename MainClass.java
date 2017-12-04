@@ -99,10 +99,15 @@ public class MainClass //don't touch this one
 		{
 			if(accounts[i].getUsername()==s)
 				return true;
+			i++;
 		}
 		return false;
 	}
 		
+	public String getCurrentUserName()
+	{
+		return currentUser.getName();
+	}
 
 	public boolean checkForEmail(String s)
 	{
@@ -111,25 +116,74 @@ public class MainClass //don't touch this one
 		{
 			if(accounts[i].getEmail()==s)
 				return true;
+			i++;
 		}
 		return false;
 	}
 
 	public void createAccount(String u, String p, String n, String r, String d, char g, String e)
 	{
-
-	}
-
-	public boolean validateUser(String u, String p)
-	{
 		int i=0;
 		while(accounts[i]!=null)
 		{
-			if(accounts[i].getUsername()==u && accounts[i].getPassword()==p)
+			i++;
+		}
+		if(r.equals("Passenger"))
+		{
+			int x=0;
+			while(passengers[x]!=null)
 			{
+				x++;
+			}
+			passengers[x]=new Passenger(n,g,d);
+			accounts[i]=new UserAccount(u,p,passengers[x],e);
+		}
+		else if(r.equals("Employee"))
+		{
+			int x=0;
+			while(employees[x]!=null)
+			{
+				x++;
+			}
+			employees[x]=new Personnel("",n);
+			accounts[i]=new UserAccount(u,p,employees[x],e);
+		}
+		else if(r.equals("Admin"))
+		{
+			int x=0;
+			while(admins[x]!=null)
+			{
+				x++;
+			}
+			admins[x]=new Admin(n);
+			accounts[i]=new UserAccount(u,p,admins[x],e);
+
+		}
+
+	}
+
+	public boolean validateUser(String u, char[] p)
+	{
+		String temp="";
+		char[] p2=p;
+		for(int x=0; x<p2.length; x++)
+			{
+				temp+=p2[x];
+			}
+			
+		//if(tracing)System.out.println(temp+" "+accounts[0].getPassword());
+		int i=0;
+		while(accounts[i]!=null)
+		{
+			if(tracing)System.out.println(u+" "+accounts[i].getUsername());
+			if(tracing)System.out.println(temp+" "+accounts[i].getPassword());
+			if (accounts[i].getUsername().equals(u) && accounts[i].getPassword().equals(temp))
+			{
+				
 				currentUser=accounts[i];
 				return true;
 			}
+			i++;
 		}
 		return false;
 	}
