@@ -2,7 +2,7 @@ public class Event
 {
 	//this one is really easy just make a constructor that takes in all the requirments from and event log and store them
 	String date;
-	String time;
+//	String time;
 	String category;
 	String location;
 	String description;
@@ -11,9 +11,8 @@ public class Event
 	int gCounter=0;
 		
 	
-	public Event(String d,String t,String c, String l, String des, Personnel g){
+	public Event(String d,String c, String l, String des, Personnel g){
 		date=d;
-		time=t;
 		category=c;
 		location=l;
 		description=des;
@@ -34,11 +33,9 @@ public class Event
 		return date;
 	}
 	
-	public void setTime(String d){
-		time=d;
-	}
-	public String getTime(){
-		return time;
+	public Personnel getGuardInCharge()
+	{
+		return guardInCharge;
 	}
 	
 	public void setCategory(String d){

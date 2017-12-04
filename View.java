@@ -346,12 +346,19 @@ public class View implements ActionListener
 					
 					prevScreens.push(currentPanel);
 					changeScreen(new LogEventView(this), true);
-					//RACHEL DO THIS
 				}
 				if(e.getSource().equals(c.logPersonnel))
 				{
-					prevScreens.push(currentPanel);
-					changeScreen(new clockInOutScreen(this), true);
+					String inputValue = JOptionPane.showInputDialog("Please input the name of the employee");
+					Personnel p=system.findEmployee(inputValue);
+					if(p==null)
+						JOptionPane.showMessageDialog(null, "This employee does not exist.", "Error", JOptionPane.ERROR_MESSAGE);
+					else
+					{
+						prevScreens.push(currentPanel);
+						changeScreen(new clockInOutScreen(this, p), true);
+					}
+					
 				}
 				if(e.getSource().equals(c.logDelivery))
 				{
@@ -406,12 +413,12 @@ public class View implements ActionListener
 					
 					JOptionPane.showMessageDialog(null, "This function has not been implemented.", "Error", JOptionPane.ERROR_MESSAGE);
 				}
-				else if(e.getSource().getClass().getName().equals("JButton"))
+				else if(e.getActionCommand().length()>15)
 				{
 					String text=e.getActionCommand();
 					StringTokenizer st=new StringTokenizer(text);
 					String category=st.nextToken();
-					String date=st.nextToken();
+					String date=st.nextToken()+" "+st.nextToken();
 					Event event=system.findEvent(category, date);
 					prevScreens.push(currentPanel);
 					changeScreen(new EventLogViewScreen(event), true);
@@ -480,18 +487,18 @@ public class View implements ActionListener
 				LogEventView c=(LogEventView)currentPanel;
 				if(e.getSource().equals(c.saveButton))
 				{
-					String category=(String)c.category.getSelectedItem();
+					String category=(String)c.categoryBox.getSelectedItem();
+					String date=c.dateField.getText();
 					String location=c.locationField.getText();
 					String description=c.descriptionField.getText();
 					String name=c.guardField.getText();
-					Guard guard=system.findGuard(name);
+					Personnel guard=system.findGuard(name);
 					if(guard==null)
 						JOptionPane.showMessageDialog(null, "No such guard exists.", "Error", JOptionPane.ERROR_MESSAGE);
 					else
 					{
-						system.createEvent();
+						system.createEvent(category, date, location, description, guard);
 						changeScreen((JPanel)prevScreens.pop(), true);
-						//MAKE THE CREATE EVENT FILE, MAKE GUARDS HARDCODED IN
 					}
 					
 				}

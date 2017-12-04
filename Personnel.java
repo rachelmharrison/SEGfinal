@@ -3,7 +3,7 @@ import java.util.Calendar;
 public class Personnel
 {
 	String role;
-	Shift[] shifts=new Shift[100];
+	Shift[] shifts=new Shift[3];
 	Shift currentShift;
 	int shiftCounter=0;
 	String name;
@@ -30,6 +30,11 @@ public class Personnel
 			shifts[shiftCounter]=s;
 			shiftCounter++;
 		}
+	}
+
+	public Shift[] getShifts()
+	{
+		return shifts;
 	}
 
 	public void clockIn(Shift shift)

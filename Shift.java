@@ -29,4 +29,9 @@ public class Shift
 		}
 
 	}
+
+	public String toString()
+	{
+		return month+" "+day+", Start: "+startTime+", End: "+endTime;
+	}
 }

@@ -15,8 +15,10 @@ public class LogEventView extends JPanel
 	JTextField locationField;
 	JTextArea descriptionField;
 	JTextField guardField;
+	JLabel dateField;
 
 	LogEventView(View view)
+
 	{
 		JLabel title=new JLabel("Log New Event");
 		JLabel dateLabel=new JLabel("Date: ");
@@ -64,7 +66,7 @@ public class LogEventView extends JPanel
 
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
-		JLabel dateField=new JLabel(dateFormat.format(date));
+		dateField=new JLabel(dateFormat.format(date));
 		JLabel timeField=new JLabel(Calendar.getInstance().getTime().toString());
 
 		timeField.setFont(new Font("Arial", Font.PLAIN, 20));

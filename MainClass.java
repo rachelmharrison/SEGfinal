@@ -59,6 +59,31 @@ public class MainClass //don't touch this one
 		passengers[3].addBooking(booking4);
 		passengers[4].addBooking(booking5);
 
+		employees[0]=new Personnel("Security", "Tom Anderson");
+		employees[1]=new Personnel("Security", "Jane Jones");
+		employees[2]=new Personnel("Airline", "Richard Davis");
+
+		Shift[] shift=new Shift[9];
+		shift[0]=new Shift(employees[0], "13:00", "21:00", "December", 4);
+		shift[1]=new Shift(employees[0], "13:00", "21:00", "December", 5);
+		shift[2]=new Shift(employees[0], "13:00", "21:00", "December", 6);
+		shift[3]=new Shift(employees[1], "13:00", "21:00", "December", 4);
+		shift[4]=new Shift(employees[1], "13:00", "21:00", "December", 5);
+		shift[5]=new Shift(employees[1], "13:00", "21:00", "December", 6);
+		shift[6]=new Shift(employees[2], "13:00", "21:00", "December", 4);
+		shift[7]=new Shift(employees[2], "13:00", "21:00", "December", 5);
+		shift[8]=new Shift(employees[2], "13:00", "21:00", "December", 6);
+
+		employees[0].addShift(shift[0]);
+		employees[0].addShift(shift[1]);
+		employees[0].addShift(shift[2]);
+		employees[1].addShift(shift[3]);
+		employees[1].addShift(shift[4]);
+		employees[1].addShift(shift[5]);
+		employees[2].addShift(shift[6]);
+		employees[2].addShift(shift[7]);
+		employees[2].addShift(shift[8]);
+
 		View view = new View(this);
 	}
 
@@ -318,6 +343,30 @@ public class MainClass //don't touch this one
 		while(employees[i]!=null)
 		{
 			if(employees[i].getName().equals(name) && employees[i].getRole().equalsIgnoreCase("Security"))
+			{
+				return employees[i];
+			}
+			i++;
+		}
+		return null;
+	}
+
+	public void createEvent(String category, String date, String location, String description, Personnel guard)
+	{
+		int i=0;
+		while(events[i]!=null)
+		{
+			i++;
+		}
+		events[i]=new Event(date, category, location, description, guard);
+	}
+
+	public Personnel findEmployee(String name)
+	{
+		int i=0;
+		while(employees[i]!=null)
+		{
+			if(employees[i].getName().equals(name))
 			{
 				return employees[i];
 			}
